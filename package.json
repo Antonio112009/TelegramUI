@@ -75,12 +75,12 @@
     "swc-plugin-transform-remove-imports": "^8.3.0",
     "ts-jest": "^29.1.2",
     "tsc-alias": "^1.8.8",
+    "@twa-dev/types": "^7.0.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.8",
     "@swc/helpers": "^0.5.3",
-    "@twa-dev/types": "^7.0.0",
     "@xelene/vaul-with-scroll-fix": "0.1.4"
   },
   "resolutions": {
