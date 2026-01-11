@@ -5,7 +5,7 @@ export const setRef = <T>(element: T, ref?: Ref<T>): void => {
     if (typeof ref === 'function') {
       ref(element);
     } else {
-      // eslint-disable-next-line no-param-reassign
+       
       (ref as MutableRefObject<T>).current = element;
     }
   }

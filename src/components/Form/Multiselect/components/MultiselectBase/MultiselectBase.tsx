@@ -151,7 +151,7 @@ export const MultiselectBase = forwardRef<HTMLDivElement, MultiselectBaseProps>(
   };
 
   return (
-    // eslint-disable-next-line jsx-a11y/interactive-supports-focus
+     
     <div
       ref={listRef}
       className={classNames(
@@ -167,7 +167,7 @@ export const MultiselectBase = forwardRef<HTMLDivElement, MultiselectBaseProps>(
       onKeyDown={isDisabled ? undefined : handleKeyDown}
     >
       {chipsValue.map((option, index) => (
-        <Fragment key={`${typeof option.value}-${option.label}`}>
+        <Fragment key={`${typeof option.value}-${option.value}`}>
           {renderChip(
             {
               children: option.label,

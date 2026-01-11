@@ -6,7 +6,7 @@ import { hideControls } from 'storybook/controls';
 import { Placeholder } from 'components/Blocks/Placeholder/Placeholder';
 import { Touch } from 'components/Service/Touch/Touch';
 import { Caption } from 'components/Typography/Caption/Caption';
-import { Popper } from './Popper';
+import { Popper, PopperProps } from './Popper';
 
 const meta = {
   title: 'Overlays/Popper',
@@ -18,61 +18,63 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
-  render: (args) => {
-    const [virtualElement, setVirtualElement] = useState(() =>
+const PlaygroundComponent = (args: PopperProps) => {
+  const [virtualElement, setVirtualElement] = useState(() =>
+    DOMRect.fromRect({
+      x: -200,
+      y: -200,
+      width: 10,
+      height: 10,
+    }),
+  );
+
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+    setVirtualElement(({ width, height }) =>
       DOMRect.fromRect({
-        x: -200,
-        y: -200,
-        width: 10,
-        height: 10,
+        x: event.clientX,
+        y: event.clientY,
+        width,
+        height,
       }),
     );
+  };
 
-    const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-      setVirtualElement(({ width, height }) =>
-        DOMRect.fromRect({
-          x: event.clientX,
-          y: event.clientY,
-          width,
-          height,
-        }),
-      );
-    };
-
-    return (
-      <Touch
+  return (
+    <Touch
+      style={{
+        position: 'relative',
+        height: '40vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      onClickCapture={handleClick}
+    >
+      <Placeholder
+        header="Click anywhere in this window"
+        description="A low-level component for rendering a dropdown block. It's positioning itself correctly next to the target element."
+      />
+      <Popper
+        {...args}
+        arrowProps={{ style: { color: 'var(--tgui--button_color)' } }}
         style={{
-          position: 'relative',
-          height: '40vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          padding: '10px 12px',
+          background: 'var(--tgui--button_color)',
+          color: 'var(--tgui--white)',
         }}
-        onClickCapture={handleClick}
+        targetRef={{
+          getBoundingClientRect() {
+            return virtualElement;
+          },
+        }}
       >
-        <Placeholder
-          header="Click anywhere in this window"
-          description="A low-level component for rendering a dropdown block. It's positioning itself correctly next to the target element."
-        />
-        <Popper
-          {...args}
-          arrowProps={{ style: { color: 'var(--tgui--button_color)' } }}
-          style={{
-            padding: '10px 12px',
-            background: 'var(--tgui--button_color)',
-            color: 'var(--tgui--white)',
-          }}
-          targetRef={{
-            getBoundingClientRect() {
-              return virtualElement;
-            },
-          }}
-        >
-          <Caption level="1">Hello</Caption>
-        </Popper>
-      </Touch>
-    );
-  },
+        <Caption level="1">Hello</Caption>
+      </Popper>
+    </Touch>
+  );
+};
+
+export const Playground: Story = {
+  render: PlaygroundComponent,
 };
 

@@ -28,24 +28,26 @@ const labels = [
   },
 ];
 
-export const Playground: StoryObj<SegmentedControlProps> = {
-  render: (args) => {
-    const [selected, setSelected] = useState(labels[0].value);
+const PlaygroundComponent = (args: SegmentedControlProps) => {
+  const [selected, setSelected] = useState(labels[0].value);
 
-    return (
-      <SegmentedControl {...args}>
-        {labels.map(({ value, label }) => (
-          <SegmentedControl.Item
-            key={value}
-            selected={selected === value}
-            onClick={() => setSelected(value)}
-          >
-            {label}
-          </SegmentedControl.Item>
-        ))}
-      </SegmentedControl>
-    );
-  },
+  return (
+    <SegmentedControl {...args}>
+      {labels.map(({ value, label }) => (
+        <SegmentedControl.Item
+          key={value}
+          selected={selected === value}
+          onClick={() => setSelected(value)}
+        >
+          {label}
+        </SegmentedControl.Item>
+      ))}
+    </SegmentedControl>
+  );
+};
+
+export const Playground: StoryObj<SegmentedControlProps> = {
+  render: PlaygroundComponent,
   decorators: [
     (Component) => (
       <div style={{ width: 500 }}>

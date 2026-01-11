@@ -17,7 +17,7 @@ export const autoUpdateFloatingElement = (
 ): ReturnType<typeof autoUpdate> => {
   const { elementResize = false, ...restOptions } = options;
 
-  const autoUpdateLibDisposer = autoUpdate(reference, floating, update, {
+  const autoUpdateLibDisposer = autoUpdate(reference, floating as HTMLElement, update, {
     ...restOptions,
     elementResize: false,
   });
@@ -40,7 +40,7 @@ export const autoUpdateFloatingElement = (
       });
     }
 
-    observer.observe(floating, {
+    observer.observe(floating as Node, {
       childList: true,
       subtree: true,
     });

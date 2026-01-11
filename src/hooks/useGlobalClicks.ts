@@ -12,9 +12,9 @@ export const useGlobalClicks = <
   T extends RefObject<ElementType> | undefined | null,
   ElementType extends Element = Element,
 >(
-  callback: (event: MouseEvent) => void,
-  ...refs: T[]
-) => {
+    callback: (event: MouseEvent) => void,
+    ...refs: T[]
+  ) => {
   useEnhancedEffect(() => {
     const hasNotNullRefs = refs.some((ref) => ref && ref.current !== null);
     if (!document || !hasNotNullRefs) {

@@ -14,8 +14,8 @@ export enum BiometricType {
 interface UsePinInputProps {
   pinCount: number;
   value?: number[];
-  onChange?(value: number[]): void;
-  onBiometricAuth?(): void;
+  onChange?(this: void, value: number[]): void;
+  onBiometricAuth?(this: void): void;
   biometricType?: BiometricType;
 }
 
@@ -43,7 +43,8 @@ export const usePinInput = ({
   biometricType = undefined,
 }: UsePinInputProps) => {
   const PINS = getAvailablePins(biometricType);
-  const inputRefs = useRef<HTMLLabelElement[]>([]).current;
+  const inputRefsRef = useRef<HTMLLabelElement[]>([]);
+  const inputRefs = inputRefsRef.current;
   const [value, setValue] = useCustomEnsuredControl({
     defaultValue: valueProp,
     onChange,
@@ -70,10 +71,12 @@ export const usePinInput = ({
     const lastIndex = clamp(value.length, 0, pinCount - 1);
     setValueByIndex(lastIndex, enteredValue);
     focusByIndex(lastIndex + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, pinCount]);
 
   const handleClickBackspace = useCallback(() => {
     removeLastValue(value.length - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleBiometricAuth = useCallback(() => {
@@ -105,6 +108,7 @@ export const usePinInput = ({
       default:
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const setInputRefByIndex = useCallback((index: number, ref: HTMLLabelElement | null) => {
@@ -113,6 +117,7 @@ export const usePinInput = ({
     }
 
     inputRefs[index] = ref;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onElementClick = useCallback((element: string | number) => {

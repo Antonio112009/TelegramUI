@@ -4,7 +4,7 @@ import { classNames } from 'helpers/classNames';
 
 import { Badge, BadgeProps } from 'components/Blocks/Badge/Badge';
 
-export interface ImageBadgeProps extends BadgeProps {}
+export type ImageBadgeProps = BadgeProps;
 
 export const ImageBadge = ({ type, className, ...restProps }: ImageBadgeProps) => {
   if (type !== 'number') {

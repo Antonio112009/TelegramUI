@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { hideControls } from 'storybook/controls';
 
 import { Button } from 'components/Blocks/Button/Button';
-import { Tooltip } from './Tooltip';
+import { Tooltip, TooltipProps } from './Tooltip';
 
 const meta = {
   title: 'Overlays/Tooltip',
@@ -19,6 +19,24 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const PlaygroundComponent = (args: TooltipProps) => {
+  const ref = useRef(null);
+  const [shown, setShown] = useState(true);
+
+  return (
+    <>
+      <Button style={{ width: 100 }} ref={ref} onClick={() => setShown(!shown)}>
+        {shown ? 'Hide' : 'Show'}
+      </Button>
+      {shown && (
+        <Tooltip {...args} targetRef={ref}>
+          Hold to record audio. Tap to switch to video.
+        </Tooltip>
+      )}
+    </>
+  );
+};
+
 export const Playground: Story = {
   args: {
     mode: 'light',
@@ -26,23 +44,7 @@ export const Playground: Story = {
       current: null,
     },
   },
-  render: (args) => {
-    const ref = useRef(null);
-    const [shown, setShown] = useState(true);
-
-    return (
-      <>
-        <Button style={{ width: 100 }} ref={ref} onClick={() => setShown(!shown)}>
-          {shown ? 'Hide' : 'Show'}
-        </Button>
-        {shown && (
-          <Tooltip {...args} targetRef={ref}>
-            Hold to record audio. Tap to switch to video.
-          </Tooltip>
-        )}
-      </>
-    );
-  },
+  render: PlaygroundComponent,
   decorators: [(StoryComponent) => (
     <div style={{
       display: 'flex',

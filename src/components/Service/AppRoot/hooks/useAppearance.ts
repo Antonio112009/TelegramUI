@@ -34,6 +34,7 @@ export const useAppearance = (appearanceProp?: AppRootContextInterface['appearan
     }
 
     return getBrowserAppearanceSubscriber(setAppearance);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [appearanceProp]);
 
   return appearance;

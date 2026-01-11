@@ -68,6 +68,7 @@ export const useMultiselectInput = ({
     });
 
     onChange?.(valueForChange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setValue]);
 
   const clearInput = useCallback(() => {

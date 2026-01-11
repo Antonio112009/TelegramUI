@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import { isObjectLike } from './object';
 
@@ -15,8 +17,7 @@ export const isEqual = (value: any, other: any): boolean => {
     if (Object.keys(value).length !== Object.keys(other).length) {
       return false;
     }
-
-    // eslint-disable-next-line no-restricted-syntax
+     
     for (const prop in value) {
       if (Object.prototype.hasOwnProperty.call(value, prop) && Object.prototype.hasOwnProperty.call(other, prop)) {
         if (!isEqual(value[prop], other[prop])) {

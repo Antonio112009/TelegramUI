@@ -29,8 +29,8 @@ export const Spoiler = ({
 
   const toggle = () => setIsVisible(!isVisible);
   return (
-    // It's a spoiler component, content inside is available for screen readers
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+  // It's a spoiler component, content inside is available for screen readers
+     
     <div
       {...restProps}
       className={classNames(

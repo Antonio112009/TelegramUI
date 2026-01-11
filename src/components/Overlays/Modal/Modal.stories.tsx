@@ -94,46 +94,48 @@ export const SnapPoints: Story = {
   decorators: [DecoratorFullScreen],
 };
 
+const ControlledComponent = (args: ModalProps) => {
+  const [isOpen, setIsOpen] = useState(args.open);
+  const [isFetching, setIsFetching] = useState(false);
+
+  const fetchAndClose = () => {
+    setIsFetching(true);
+    setTimeout(() => {
+      setIsFetching(false);
+      setIsOpen(false);
+    }, 1000);
+  };
+
+  return (
+    <Placeholder
+      header="This modal will be closed after 1000ms, click fetch"
+      description="Click fetch"
+      action={<Button size="m" onClick={() => setIsOpen(true)}>Open again</Button>}
+    >
+      <Modal
+        {...args}
+        trigger={undefined}
+        open={isOpen}
+        onOpenChange={setIsOpen}
+      >
+        <Placeholder action={(
+          <Button
+            size="m"
+            loading={isFetching}
+            onClick={fetchAndClose}
+          >
+            Fetch data and close
+          </Button>
+        )} />
+      </Modal>
+    </Placeholder>
+  );
+};
+
 export const Controlled: Story = {
   args: {
     ...Playground.args,
   },
-  render: (args) => {
-    const [isOpen, setIsOpen] = useState(args.open);
-    const [isFetching, setIsFetching] = useState(false);
-
-    const fetchAndClose = () => {
-      setIsFetching(true);
-      setTimeout(() => {
-        setIsFetching(false);
-        setIsOpen(false);
-      }, 1000);
-    };
-
-    return (
-      <Placeholder
-        header="This modal will be closed after 1000ms, click fetch"
-        description="Click fetch"
-        action={<Button size="m" onClick={() => setIsOpen(true)}>Open again</Button>}
-      >
-        <Modal
-          {...args}
-          trigger={undefined}
-          open={isOpen}
-          onOpenChange={setIsOpen}
-        >
-          <Placeholder action={(
-            <Button
-              size="m"
-              loading={isFetching}
-              onClick={fetchAndClose}
-            >
-              Fetch data and close
-            </Button>
-          )} />
-        </Modal>
-      </Placeholder>
-    );
-  },
+  render: ControlledComponent,
   decorators: [DecoratorFullScreen],
 };

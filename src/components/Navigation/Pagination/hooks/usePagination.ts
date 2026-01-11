@@ -67,7 +67,7 @@ export const usePagination = ({
     ...startPages,
 
     // Start ellipsis
-    // eslint-disable-next-line no-nested-ternary
+     
     ...(siblingsStart > boundaryCount + 2
       ? [PaginationType.StartEllipsis]
       : boundaryCount + 1 < count - boundaryCount
@@ -78,7 +78,7 @@ export const usePagination = ({
     ...range(siblingsStart, siblingsEnd),
 
     // End ellipsis
-    // eslint-disable-next-line no-nested-ternary
+     
     ...(siblingsEnd < count - boundaryCount - 1
       ? [PaginationType.EndEllipsis]
       : count - boundaryCount > boundaryCount
@@ -92,9 +92,9 @@ export const usePagination = ({
   // Map the button type to its page number
   const buttonPage = (type: UsePaginationItem['type']) => {
     switch (type) {
-      case 'previous':
+      case PaginationType.Previous:
         return page - 1;
-      case 'next':
+      case PaginationType.Next:
         return page + 1;
       default:
         return null;

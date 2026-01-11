@@ -32,25 +32,27 @@ const tabs = [
   },
 ];
 
-export const Playground: StoryObj<TabbarProps> = {
-  render: () => {
-    const [currentTab, setCurrentTab] = useState(tabs[0].id);
+const PlaygroundComponent = () => {
+  const [currentTab, setCurrentTab] = useState(tabs[0].id);
 
-    return (
-      <Tabbar>
-        {tabs.map(({ id, text, Icon }) => (
-          <Tabbar.Item
-            key={id}
-            text={text}
-            selected={id === currentTab}
-            onClick={() => setCurrentTab(id)}
-          >
-            <Icon />
-          </Tabbar.Item>
-        ))}
-      </Tabbar>
-    );
-  },
+  return (
+    <Tabbar>
+      {tabs.map(({ id, text, Icon }) => (
+        <Tabbar.Item
+          key={id}
+          text={text}
+          selected={id === currentTab}
+          onClick={() => setCurrentTab(id)}
+        >
+          <Icon />
+        </Tabbar.Item>
+      ))}
+    </Tabbar>
+  );
+};
+
+export const Playground: StoryObj<TabbarProps> = {
+  render: PlaygroundComponent,
   decorators: [
     (Story) => (
       <div style={{ height: 100 }}>

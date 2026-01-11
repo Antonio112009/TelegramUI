@@ -100,7 +100,7 @@ export const PinInput = forwardRef<HTMLElement, PinInputProps>(({
             {Array.from({ length: normalizedPinCount }).map((_, index) => (
               <PinInputCell
                 /* We can't use useId here, because if pinCount changes in runtime, it will crash because amount of renders will be different */
-                /* eslint-disable-next-line react/no-array-index-key */
+                 
                 key={index}
                 ref={(labelRef) => setInputRefByIndex(index, labelRef)}
                 isTyped={index < value.length}

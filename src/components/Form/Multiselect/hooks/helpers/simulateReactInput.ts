@@ -15,8 +15,7 @@ export const simulateReactInput = (
     const simulateTarget = target;
     const prevValue = simulateTarget.value;
     simulateTarget.value = nextValue;
-
-    // eslint-disable-next-line no-underscore-dangle
+     
     const tracker = simulateTarget._valueTracker;
     tracker?.setValue(prevValue);
 

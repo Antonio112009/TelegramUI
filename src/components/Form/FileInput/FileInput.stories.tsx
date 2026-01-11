@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Cell, List, Section } from 'components';
-import { FileInput } from './FileInput';
+import { FileInput, FileInputProps } from './FileInput';
 
 const meta = {
   title: 'Form/FileInput',
@@ -13,18 +13,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
-  render: (args) => {
-    const [files, setFiles] = useState<FileList | null>(null);
+const PlaygroundComponent = (args: FileInputProps) => {
+  const [files, setFiles] = useState<FileList | null>(null);
 
-    return (
-      <FileInput multiple onChange={(event) => setFiles(event.target.files)} {...args}>
-        {files && Array.from(files).map((file) => (
-          <Cell key={file.name} subtitle={`${file.size} bytes`}>{file.name}</Cell>
-        ))}
-      </FileInput>
-    );
-  },
+  return (
+    <FileInput multiple onChange={(event) => setFiles(event.target.files)} {...args}>
+      {files && Array.from(files).map((file) => (
+        <Cell key={file.name} subtitle={`${file.size} bytes`}>{file.name}</Cell>
+      ))}
+    </FileInput>
+  );
+};
+
+export const Playground: Story = {
+  render: PlaygroundComponent,
   decorators: [
     (DecoratorStory) => (
       <List>

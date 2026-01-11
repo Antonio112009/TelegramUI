@@ -19,7 +19,7 @@ export const TabsList = ({
   children,
   ...restProps
 }: TabsListProps) => {
-  const childrenAsArray = Children.toArray(children);
+  const childrenAsArray = Children.toArray(children) as ReactElement<TabsItemProps>[];
   const checkedIndex = childrenAsArray.findIndex((option) => {
     return isValidElement(option) && option.props.selected;
   });

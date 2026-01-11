@@ -96,7 +96,7 @@ export const MultiselectDropdown = forwardRef<HTMLDivElement, MultiselectDropdow
         }
 
         return (
-          <Fragment key={`${typeof option.value}-${option.label}`}>
+          <Fragment key={`${typeof option.value}-${option.value}`}>
             {renderOption(
               {
                 className: styles.option,
