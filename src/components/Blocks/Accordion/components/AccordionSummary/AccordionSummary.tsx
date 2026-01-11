@@ -9,7 +9,7 @@ import { Icon24ChevronDown } from 'icons/24/chevron_down';
 import { AccordionContext } from 'components/Blocks/Accordion/AccordionContext';
 import { Cell, CellProps } from 'components/Blocks/Cell/Cell';
 
-export interface AccordionSummaryProps extends CellProps {}
+export type AccordionSummaryProps = CellProps;
 
 /**
  * `AccordionSummary` serves as the clickable header for an accordion section, toggling the visibility of the content.

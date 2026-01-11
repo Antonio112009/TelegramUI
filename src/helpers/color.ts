@@ -1,4 +1,4 @@
-/* eslint-disable no-bitwise */
+ 
 export const hexToRGB = (hex: string): [number, number, number] => {
   let fullHex = hex;
 
@@ -17,4 +17,4 @@ export const hexToRGB = (hex: string): [number, number, number] => {
     bigint & 255,
   ];
 };
-/* eslint-enable no-bitwise */
+ 

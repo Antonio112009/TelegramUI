@@ -7,7 +7,7 @@ import { hasReactNode } from 'helpers/react/node';
 import { Cell, CellProps } from 'components/Blocks/Cell/Cell';
 import { CardContext } from '../../CardContext';
 
-interface CardCellProps extends CellProps {}
+type CardCellProps = CellProps;
 
 export const CardCell = ({
   children,

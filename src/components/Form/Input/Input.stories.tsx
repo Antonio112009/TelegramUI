@@ -18,12 +18,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
+const PlaygroundComponent = () => {
+  const [value, setValue] = useState('');
 
-    return (
-      <List style={{
+  return (
+    <List style={{
         width: 400,
         maxWidth: '100%',
         margin: 'auto',
@@ -65,7 +64,9 @@ export const Playground: Story = {
           )}
         />
       </List>
-    );
-  },
-} satisfies Story;
+  );
+};
 
+export const Playground: Story = {
+  render: PlaygroundComponent,
+} satisfies Story;

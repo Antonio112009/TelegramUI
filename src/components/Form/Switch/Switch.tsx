@@ -8,8 +8,7 @@ import { usePlatform } from 'hooks/usePlatform';
 
 import { VisuallyHidden } from 'components/Service/VisuallyHidden/VisuallyHidden';
 
-export interface SwitchProps
-  extends InputHTMLAttributes<HTMLInputElement> {}
+export type SwitchProps = InputHTMLAttributes<HTMLInputElement>;
 
 const platformStyles = {
   base: styles['wrapper--base'],

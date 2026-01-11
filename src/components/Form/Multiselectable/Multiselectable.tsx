@@ -12,9 +12,7 @@ import { IconMultiselectableChecked } from './icons/multiselectable_checked';
 import { IconMultiselectableIOS } from './icons/multiselectable_ios';
 import { IconMultiselectableIOSChecked } from './icons/multiselectable_ios_checked';
 
-export interface MultiselectableProps
-  extends InputHTMLAttributes<HTMLInputElement> {
-}
+export type MultiselectableProps = InputHTMLAttributes<HTMLInputElement>;
 
 /**
  * Renders a custom multiselectable checkbox input, adapting its icons based on the current platform (iOS or others).

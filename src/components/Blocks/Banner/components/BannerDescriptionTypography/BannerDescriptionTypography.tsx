@@ -4,8 +4,7 @@ import { Caption } from 'components/Typography/Caption/Caption';
 import { Subheadline } from 'components/Typography/Subheadline/Subheadline';
 import { TypographyProps } from 'components/Typography/Typography';
 
-export interface BannerDescriptionTypographyProps extends Omit<TypographyProps, 'level'> {
-}
+export type BannerDescriptionTypographyProps = Omit<TypographyProps, 'level'>;
 
 export const BannerDescriptionTypography = (props: BannerDescriptionTypographyProps) => {
   const platform = usePlatform();

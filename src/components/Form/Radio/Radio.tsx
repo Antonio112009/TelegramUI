@@ -7,9 +7,7 @@ import { VisuallyHidden } from 'components/Service/VisuallyHidden/VisuallyHidden
 import { IconRadio } from './icons/radio';
 import { IconRadioChecked } from './icons/radio_checked';
 
-export interface RadioProps
-  extends InputHTMLAttributes<HTMLInputElement> {
-}
+export type RadioProps = InputHTMLAttributes<HTMLInputElement>;
 
 /**
  * Renders a custom radio button, visually hiding the actual input while displaying custom icons for unchecked and checked states.

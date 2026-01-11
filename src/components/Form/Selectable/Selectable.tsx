@@ -10,9 +10,7 @@ import { VisuallyHidden } from 'components/Service/VisuallyHidden/VisuallyHidden
 import { IconSelectableBase } from './icons/selectable_base';
 import { IconSelectableIOS } from './icons/selectable_ios';
 
-export interface SelectableProps
-  extends InputHTMLAttributes<HTMLInputElement> {
-}
+export type SelectableProps = InputHTMLAttributes<HTMLInputElement>;
 
 /**
  * Renders a custom styled selectable input (radio button), visually enhancing the default HTML input
