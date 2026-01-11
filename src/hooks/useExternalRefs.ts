@@ -23,6 +23,7 @@ export function useExternRef<T>(
         });
       },
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     externRefs,
   );
 }

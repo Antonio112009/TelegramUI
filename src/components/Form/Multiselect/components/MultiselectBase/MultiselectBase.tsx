@@ -167,7 +167,7 @@ export const MultiselectBase = forwardRef<HTMLDivElement, MultiselectBaseProps>(
       onKeyDown={isDisabled ? undefined : handleKeyDown}
     >
       {chipsValue.map((option, index) => (
-        <Fragment key={`${typeof option.value}-${option.label}`}>
+        <Fragment key={`${typeof option.value}-${option.value}`}>
           {renderChip(
             {
               children: option.label,

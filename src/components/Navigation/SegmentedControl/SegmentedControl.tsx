@@ -23,7 +23,7 @@ export const SegmentedControl = ({
 }: SegmentedControlProps) => {
   const platform = usePlatform();
 
-  const childrenAsArray = Children.toArray(children);
+  const childrenAsArray = Children.toArray(children) as ReactElement<SegmentedControlItemProps>[];
   const checkedIndex = childrenAsArray.findIndex((option) => {
     return isValidElement(option) && option.props.selected;
   });

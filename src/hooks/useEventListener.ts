@@ -38,7 +38,7 @@ export function useEventListener<E extends Event, K extends keyof GlobalEventHan
   }, [_cb]);
 
   // Callback function to be executed when the event occurs
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument */
   const cb = useCallback((e: any) => cbRef.current && cbRef.current(e), []);
 
   // Refs to store the detach and remove functions
