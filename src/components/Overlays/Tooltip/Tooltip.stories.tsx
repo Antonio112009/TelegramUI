@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { hideControls } from 'storybook/controls';
 
 import { Button } from 'components/Blocks/Button/Button';
-import { Tooltip } from './Tooltip';
+import { Tooltip, TooltipProps } from './Tooltip';
 
 const meta = {
   title: 'Overlays/Tooltip',

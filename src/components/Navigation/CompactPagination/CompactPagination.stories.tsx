@@ -27,16 +27,16 @@ const PlaygroundComponent = (args: CompactPaginationProps) => {
     }}>
       <CompactPagination {...args}>
         {paginationItems.map((item) => (
-            <CompactPagination.Item
-              key={item}
-              onClick={() => setSelected(item)}
-              selected={item === selected}
-            >
-              {item}
-            </CompactPagination.Item>
-          ))}
-        </CompactPagination>
-      </div>
+          <CompactPagination.Item
+            key={item}
+            onClick={() => setSelected(item)}
+            selected={item === selected}
+          >
+            {item}
+          </CompactPagination.Item>
+        ))}
+      </CompactPagination>
+    </div>
   );
 };
 

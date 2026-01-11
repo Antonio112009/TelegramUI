@@ -6,7 +6,7 @@ import { hideControls } from 'storybook/controls';
 import { Placeholder } from 'components/Blocks/Placeholder/Placeholder';
 import { Touch } from 'components/Service/Touch/Touch';
 import { Caption } from 'components/Typography/Caption/Caption';
-import { Popper } from './Popper';
+import { Popper, PopperProps } from './Popper';
 
 const meta = {
   title: 'Overlays/Popper',
