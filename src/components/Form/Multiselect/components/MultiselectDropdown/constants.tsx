@@ -7,7 +7,7 @@ import { Icon20SelectIOS } from 'icons/20/select_ios';
 
 import { Cell, CellProps } from 'components/Blocks/Cell/Cell';
 
-export const renderOptionDefault = (props: CellProps) => {
+export const RenderOptionDefault = (props: CellProps) => {
   const platform = usePlatform();
 
   const SelectedIcon = platform === 'ios' ? Icon20SelectIOS : Icon20Select;
@@ -18,3 +18,6 @@ export const renderOptionDefault = (props: CellProps) => {
     />
   );
 };
+
+// Legacy export for backward compatibility
+export const renderOptionDefault = RenderOptionDefault;
