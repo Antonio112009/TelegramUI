@@ -15,19 +15,18 @@ export default meta;
 
 const paginationItems = Array.from({ length: 8 }, (_, i) => i + 1);
 
-export const Playground: StoryObj<CompactPaginationProps> = {
-  render: (args) => {
-    const [selected, setSelected] = useState(1);
+const PlaygroundComponent = (args: CompactPaginationProps) => {
+  const [selected, setSelected] = useState(1);
 
-    return (
-      <div style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        padding: 20,
-        background: args.mode === 'white' ? 'var(--tgui--black)' : 'var(--tgui--secondary_bg_color)',
-      }}>
-        <CompactPagination {...args}>
-          {paginationItems.map((item) => (
+  return (
+    <div style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      padding: 20,
+      background: args.mode === 'white' ? 'var(--tgui--black)' : 'var(--tgui--secondary_bg_color)',
+    }}>
+      <CompactPagination {...args}>
+        {paginationItems.map((item) => (
             <CompactPagination.Item
               key={item}
               onClick={() => setSelected(item)}
@@ -38,6 +37,9 @@ export const Playground: StoryObj<CompactPaginationProps> = {
           ))}
         </CompactPagination>
       </div>
-    );
-  },
+  );
+};
+
+export const Playground: StoryObj<CompactPaginationProps> = {
+  render: PlaygroundComponent,
 };

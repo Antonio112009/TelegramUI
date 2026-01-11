@@ -28,24 +28,26 @@ const labels = [
   },
 ];
 
-export const Playground: StoryObj<TabsListProps> = {
-  render: (args) => {
-    const [selected, setSelected] = useState(labels[0].value);
+const PlaygroundComponent = (args: TabsListProps) => {
+  const [selected, setSelected] = useState(labels[0].value);
 
-    return (
-      <TabsList {...args}>
-        {labels.map(({ value, label }) => (
-          <TabsList.Item
-            key={value}
-            selected={selected === value}
-            onClick={() => setSelected(value)}
-          >
-            {label}
-          </TabsList.Item>
-        ))}
-      </TabsList>
-    );
-  },
+  return (
+    <TabsList {...args}>
+      {labels.map(({ value, label }) => (
+        <TabsList.Item
+          key={value}
+          selected={selected === value}
+          onClick={() => setSelected(value)}
+        >
+          {label}
+        </TabsList.Item>
+      ))}
+    </TabsList>
+  );
+};
+
+export const Playground: StoryObj<TabsListProps> = {
+  render: PlaygroundComponent,
   decorators: [
     (Component) => (
       <div style={{ maxWidth: 500 }}>

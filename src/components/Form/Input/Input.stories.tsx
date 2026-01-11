@@ -23,47 +23,47 @@ const PlaygroundComponent = () => {
 
   return (
     <List style={{
-        width: 400,
-        maxWidth: '100%',
-        margin: 'auto',
-        background: 'var(--tgui--secondary_bg_color)',
-      }}>
-        <Input
-          header="Input"
-          placeholder="I am usual input, just leave me alone"
-        />
-        <Input
-          status="error"
-          header="Input"
-          placeholder="I am error input, don't make my mistakes..."
-        />
-        <Input
-          status="focused"
-          header="Input"
-          placeholder="I am focused input, are u focused on me?"
-        />
-        <Input
-          disabled
-          header="Input"
-          placeholder="I am disabled input"
-        />
-        <Input
-          status="focused"
-          header="Input"
-          placeholder="Write and clean me"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          after={(
-            <Tappable
-              Component="div"
-              style={{ display: 'flex' }}
-              onClick={() => setValue('')}
-            >
-              <Icon24Close />
-            </Tappable>
-          )}
-        />
-      </List>
+      width: 400,
+      maxWidth: '100%',
+      margin: 'auto',
+      background: 'var(--tgui--secondary_bg_color)',
+    }}>
+      <Input
+        header="Input"
+        placeholder="I am usual input, just leave me alone"
+      />
+      <Input
+        status="error"
+        header="Input"
+        placeholder="I am error input, don't make my mistakes..."
+      />
+      <Input
+        status="focused"
+        header="Input"
+        placeholder="I am focused input, are u focused on me?"
+      />
+      <Input
+        disabled
+        header="Input"
+        placeholder="I am disabled input"
+      />
+      <Input
+        status="focused"
+        header="Input"
+        placeholder="Write and clean me"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        after={(
+          <Tappable
+            Component="div"
+            style={{ display: 'flex' }}
+            onClick={() => setValue('')}
+          >
+            <Icon24Close />
+          </Tappable>
+        )}
+      />
+    </List>
   );
 };
 
