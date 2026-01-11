@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+dist-cjs
+storybook-static
+
+# Logs
+*.log
+npm-debug.log*
+
+# Lock files
+package-lock.json
