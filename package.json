@@ -17,9 +17,8 @@
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "build": "concurrently \"npm run build:types\" \"npm run swc:*\"",
-    "test": "vitest",
-    "test:run": "vitest run",
+    "build": "concurrently \"npm test\" \"npm run build:types\" \"npm run swc:*\"",
+    "test": "vitest run",
     "test:ui": "vitest --ui",
     "build:types": "concurrently 'npm run tsc:*'",
     "swc-base": "cross-env NODE_ENV=production swc src/ --config-file package.swcrc --extensions .tsx,.jsx,.ts,.js",
