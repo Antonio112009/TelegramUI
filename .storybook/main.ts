@@ -1,39 +1,23 @@
-import type { StorybookConfig } from '@storybook/react-webpack5';
-import path from 'path';
+import { fileURLToPath } from "node:url";
+import type { StorybookConfig } from '@storybook/react-vite';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: [
-    '@storybook/addon-links',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-      },
-    },
-  ],
+  addons: ['@storybook/addon-links', '@storybook/addon-docs'],
+
   framework: {
-    name: '@storybook/react-webpack5',
-    options: {
-      fastRefresh: true,
-      builder: {
-        useSWC: true,
-      },
-    },
+    name: '@storybook/react-vite',
+    options: {},
   },
-  swc: () => ({
-    jsc: {
-      transform: {
-        react: {
-          runtime: 'automatic',
-        },
-      },
-    },
-  }),
+
   docs: {
-    autodocs: true,
-    defaultName: 'Documentation',
+    defaultName: 'Documentation'
   },
+
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
@@ -52,27 +36,29 @@ const config: StorybookConfig = {
       },
     },
   },
-  webpackFinal: async (config) => {
-    if (!config.resolve) {
-      config.resolve = {};
-    }
 
-    if (!config.module) {
-      config.module = {};
-    }
-
-    if (!config.module.rules) {
-      config.module.rules = [];
-    }
-
-    config.resolve.modules = [
-      ...(config.resolve.modules || []),
-      path.resolve(__dirname, '../src'),
-    ];
+  async viteFinal(config) {
+    // Add path aliases for imports
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'components': join(__dirname, '../src/components'),
+      'helpers': join(__dirname, '../src/helpers'),
+      'hooks': join(__dirname, '../src/hooks'),
+      'icons': join(__dirname, '../src/icons'),
+      'types': join(__dirname, '../src/types'),
+      // Only alias our local storybook/controls, not all storybook/* imports
+      'storybook/controls': join(__dirname, '../src/storybook/controls'),
+    };
 
     return config;
   },
+
   staticDirs: ['./media'],
+
+  core: {
+    disableTelemetry: true,
+  },
 };
 
 export default config;
