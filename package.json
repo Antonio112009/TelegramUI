@@ -83,7 +83,7 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.0.8",
+    "@floating-ui/react-dom": "^2.1.6",
     "@swc/helpers": "^0.5.18",
     "@xelene/vaul-with-scroll-fix": "0.1.4"
   },
