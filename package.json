@@ -13,11 +13,11 @@
     "./dist/cjs/index.js"
   ],
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
   },
   "scripts": {
-    "build": "concurrently \"npm test\" \"npm run build:types\" \"npm run swc:*\"",
+    "build": "npm run test && npm run build:types && npm run swc:*",
     "test": "vitest run",
     "test:ui": "vitest --ui",
     "build:types": "concurrently 'npm run tsc:*'",
