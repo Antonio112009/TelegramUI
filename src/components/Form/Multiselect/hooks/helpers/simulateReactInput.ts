@@ -22,8 +22,6 @@ export const simulateReactInput = (
     const event = new Event('input', { bubbles: true });
     target.dispatchEvent(event);
   } catch (error) {
-    if (process.env.NODE_ENV === 'development') {
-      throw error;
-    }
+    // Silently ignore errors - no dev mode check to avoid build issues
   }
 };
