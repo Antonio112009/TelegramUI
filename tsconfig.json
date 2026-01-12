@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "target": "es2018",
     "jsx": "react-jsx",
-    "lib": ["dom", "es2015"],
+    "lib": ["dom", "es2018"],
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
