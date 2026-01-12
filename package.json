@@ -77,8 +77,6 @@
     "globals": "^15.14.0",
     "prettier": "^3.1.1",
     "storybook": "^7.6.7",
-    "swc-plugin-css-modules": "^8.0.0",
-    "swc-plugin-transform-remove-imports": "^8.3.0",
     "tsc-alias": "^1.8.8",
     "typescript": "^5.3.3",
     "typescript-eslint": "^8.18.2",
