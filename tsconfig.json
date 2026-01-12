@@ -5,6 +5,11 @@
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
+      "components/*": ["./src/components/*"],
+      "helpers/*": ["./src/helpers/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "icons/*": ["./src/icons/*"],
+      "types/*": ["./src/types/*"],
       "*": ["./src/*"]
     },
     "outDir": "./dist",

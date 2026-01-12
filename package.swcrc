@@ -11,6 +11,7 @@
       "helpers/*": ["./src/helpers/*"],
       "hooks/*": ["./src/hooks/*"],
       "icons/*": ["./src/icons/*"],
+      "types/*": ["./src/types/*"]
     },
     "externalHelpers": true,
     "parser": {
@@ -22,23 +23,6 @@
         "runtime": "automatic"
       }
     },
-    "target": "es2015",
-    "experimental": {
-      "cacheRoot": "node_modules/.cache/swc",
-      "plugins": [
-        [
-          "swc-plugin-css-modules",
-          {
-            "generate_scoped_name": "tgui.[hash]",
-          }
-        ],
-        [
-          "swc-plugin-transform-remove-imports",
-          {
-            "test": "\\.css$"
-          }
-        ],
-      ]
-    }
+    "target": "es2015"
   }
 }

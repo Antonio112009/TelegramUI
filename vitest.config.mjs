@@ -14,9 +14,11 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      components: path.resolve(__dirname, './src/components'),
       helpers: path.resolve(__dirname, './src/helpers'),
       hooks: path.resolve(__dirname, './src/hooks'),
-      components: path.resolve(__dirname, './src/components'),
+      icons: path.resolve(__dirname, './src/icons'),
+      types: path.resolve(__dirname, './src/types'),
     },
   },
 });
