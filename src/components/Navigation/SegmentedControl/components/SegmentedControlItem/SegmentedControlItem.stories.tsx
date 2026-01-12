@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SegmentedControlItem, SegmentedControlItemProps } from './SegmentedControlItem';
+import {
+  SegmentedControlItem,
+  SegmentedControlItemProps,
+} from './SegmentedControlItem';
 
 const meta = {
   title: 'Navigation/SegmentedControl/SegmentedControl.Item',
@@ -15,4 +18,3 @@ export const Playground: StoryObj<SegmentedControlItemProps> = {
     children: 'This is a SegmentedControl.Item',
   },
 };
-

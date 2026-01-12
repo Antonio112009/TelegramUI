@@ -9,9 +9,12 @@
   border: none;
   border-radius: 50%;
 
-  transition: opacity .15s ease-in-out;
-  opacity: var(--tgui--compact_pagination--dot--opacity--selected, .25);
-  background: var(--tgui--compact_pagination--dot--background--selected, var(--tgui--link_color));
+  transition: opacity 0.15s ease-in-out;
+  opacity: var(--tgui--compact_pagination--dot--opacity--selected, 0.25);
+  background: var(
+    --tgui--compact_pagination--dot--background--selected,
+    var(--tgui--link_color)
+  );
 }
 
 .wrapper--selected {

@@ -25,7 +25,13 @@ export const Playground: StoryObj<AccordionContentProps> = {
   ),
   decorators: [
     (Story) => (
-      <Section style={{ background: 'var(--tgui--secondary_bg_color)', padding: 20, width: 358 }}>
+      <Section
+        style={{
+          background: 'var(--tgui--secondary_bg_color)',
+          padding: 20,
+          width: 358,
+        }}
+      >
         <Accordion expanded onChange={console.log}>
           <Accordion.Summary>Accordion summary</Accordion.Summary>
           <Story />

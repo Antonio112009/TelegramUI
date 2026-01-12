@@ -20,10 +20,12 @@ export const Playground: Story = {
   ),
   decorators: [
     (StoryComponent) => (
-      <div style={{
-        display: 'flex',
-        gap: 20,
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: 20,
+        }}
+      >
         <StoryComponent />
       </div>
     ),

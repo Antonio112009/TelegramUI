@@ -1,4 +1,3 @@
- 
 export const hexToRGB = (hex: string): [number, number, number] => {
   let fullHex = hex;
 
@@ -11,10 +10,5 @@ export const hexToRGB = (hex: string): [number, number, number] => {
   const channelR = bigint >> 16;
   const channelG = bigint >> 8;
 
-  return [
-    channelR & 255,
-    channelG & 255,
-    bigint & 255,
-  ];
+  return [channelR & 255, channelG & 255, bigint & 255];
 };
- 

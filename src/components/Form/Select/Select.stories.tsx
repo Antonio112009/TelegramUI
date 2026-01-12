@@ -15,10 +15,12 @@ export default meta;
 
 export const Playground: StoryObj<SelectProps> = {
   render: () => (
-    <List style={{
-      width: 240,
-      background: 'var(--tgui--secondary_bg_color)',
-    }}>
+    <List
+      style={{
+        width: 240,
+        background: 'var(--tgui--secondary_bg_color)',
+      }}
+    >
       <Select header="Select">
         <option>Hello</option>
         <option>Okay</option>
@@ -26,4 +28,3 @@ export const Playground: StoryObj<SelectProps> = {
     </List>
   ),
 };
-

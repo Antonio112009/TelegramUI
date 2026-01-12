@@ -1,9 +1,16 @@
 import { isHTMLElement } from '@floating-ui/utils/dom';
 
 export const canUseDOM = (() =>
-  !!(typeof window !== 'undefined' && window.document && window.document.createElement))();
+  !!(
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.createElement
+  ))();
 
-export const getHTMLElementByChildren = (children: HTMLCollection, index: number) => {
+export const getHTMLElementByChildren = (
+  children: HTMLCollection,
+  index: number,
+) => {
   const foundEl = children[index];
   return isHTMLElement(foundEl) ? foundEl : null;
 };
@@ -27,4 +34,3 @@ export const getHTMLElementSiblingByDirection = <T extends Element>(
 
   return isHTMLElement(siblingEl) ? siblingEl : null;
 };
-

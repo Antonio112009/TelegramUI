@@ -22,9 +22,11 @@ export const extractSliderAriaAttributes = <T extends AriaAttributes>(
   };
 };
 
-export const getDraggingTypeByTargetDataset = <T extends (EventTarget & HTMLElement) | null>(
-  target: T,
-) => {
+export const getDraggingTypeByTargetDataset = <
+  T extends (EventTarget & HTMLElement) | null,
+>(
+    target: T,
+  ) => {
   if (!target) {
     return null;
   }
@@ -35,4 +37,3 @@ export const getDraggingTypeByTargetDataset = <T extends (EventTarget & HTMLElem
 
   return null;
 };
-

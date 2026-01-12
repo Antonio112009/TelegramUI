@@ -6,7 +6,9 @@ import { TypographyProps } from 'components/Typography/Typography';
 
 export type BannerDescriptionTypographyProps = Omit<TypographyProps, 'level'>;
 
-export const BannerDescriptionTypography = (props: BannerDescriptionTypographyProps) => {
+export const BannerDescriptionTypography = (
+  props: BannerDescriptionTypographyProps,
+) => {
   const platform = usePlatform();
 
   if (platform === 'ios') {

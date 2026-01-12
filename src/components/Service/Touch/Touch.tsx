@@ -1,12 +1,24 @@
-
 'use client';
 
-import { AllHTMLAttributes, DragEvent, ElementType, MouseEvent as ReactMouseEvent, useMemo, useRef } from 'react';
+import {
+  AllHTMLAttributes,
+  DragEvent,
+  ElementType,
+  MouseEvent as ReactMouseEvent,
+  useMemo,
+  useRef,
+} from 'react';
 
 import { useEnhancedEffect } from 'hooks/useEnhancedEffect';
 import { useEventListener } from 'hooks/useEventListener';
 
-import { coordX, coordY, getSupportedEvents, initGesture, touchEnabled } from './helpers/touch';
+import {
+  coordX,
+  coordY,
+  getSupportedEvents,
+  initGesture,
+  touchEnabled,
+} from './helpers/touch';
 import { CustomTouchEvent, Gesture } from './helpers/types';
 
 export interface TouchProps extends AllHTMLAttributes<HTMLElement> {
@@ -67,7 +79,10 @@ export const Touch = ({
   const didSlide = useRef(false);
   const gesture = useRef<Partial<Gesture> | null>(null);
 
-  const handle = (e: CustomTouchEvent, handlers: Array<TouchEventHandler | undefined | false>) => {
+  const handle = (
+    e: CustomTouchEvent,
+    handlers: Array<TouchEventHandler | undefined | false>,
+  ) => {
     stopPropagation && e.stopPropagation();
     handlers.forEach((cb) => {
       const duration = Date.now() - (gesture.current?.startT?.getTime() ?? 0);
@@ -94,8 +109,14 @@ export const Touch = ({
     listeners.forEach((l) => l.remove());
   };
 
-  const enterHandler = useEventListener(usePointerHover ? 'pointerenter' : 'mouseenter', onEnter);
-  const leaveHandler = useEventListener(usePointerHover ? 'pointerleave' : 'mouseleave', onLeave);
+  const enterHandler = useEventListener(
+    usePointerHover ? 'pointerenter' : 'mouseenter',
+    onEnter,
+  );
+  const leaveHandler = useEventListener(
+    usePointerHover ? 'pointerleave' : 'mouseleave',
+    onLeave,
+  );
   const startHandler = useEventListener(
     events[0],
     (e: CustomTouchEvent) => {
@@ -127,7 +148,13 @@ export const Touch = ({
   }, [Component]);
 
   function onMove(e: CustomTouchEvent) {
-    const { isPressed, isX, isY, startX = 0, startY = 0 } = gesture.current ?? {};
+    const {
+      isPressed,
+      isX,
+      isY,
+      startX = 0,
+      startY = 0,
+    } = gesture.current ?? {};
 
     if (isPressed) {
       const clientX = coordX(e);

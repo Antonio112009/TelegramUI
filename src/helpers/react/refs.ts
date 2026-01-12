@@ -5,13 +5,14 @@ export const setRef = <T>(element: T, ref?: Ref<T>): void => {
     if (typeof ref === 'function') {
       ref(element);
     } else {
-       
       (ref as MutableRefObject<T>).current = element;
     }
   }
 };
 
-export const multipleRef = <T>(...refs: Array<Ref<T> | undefined>): RefObject<T> => {
+export const multipleRef = <T>(
+  ...refs: Array<Ref<T> | undefined>
+): RefObject<T> => {
   let current: T | null = null;
   return {
     get current() {

@@ -9,7 +9,11 @@ export const isEqual = (value: any, other: any): boolean => {
     return true;
   }
 
-  if (value == null || other == null || (!isObjectLike(value) && !isObjectLike(other))) {
+  if (
+    value == null ||
+    other == null ||
+    (!isObjectLike(value) && !isObjectLike(other))
+  ) {
     return false;
   }
 
@@ -17,9 +21,12 @@ export const isEqual = (value: any, other: any): boolean => {
     if (Object.keys(value).length !== Object.keys(other).length) {
       return false;
     }
-     
+
     for (const prop in value) {
-      if (Object.prototype.hasOwnProperty.call(value, prop) && Object.prototype.hasOwnProperty.call(other, prop)) {
+      if (
+        Object.prototype.hasOwnProperty.call(value, prop) &&
+        Object.prototype.hasOwnProperty.call(other, prop)
+      ) {
         if (!isEqual(value[prop], other[prop])) {
           return false;
         }
@@ -33,4 +40,3 @@ export const isEqual = (value: any, other: any): boolean => {
 
   return false;
 };
-

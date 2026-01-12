@@ -24,13 +24,13 @@
   border-radius: 50%;
   background: conic-gradient(
     from 0deg at 50% 50%,
-    #0C28FF 0deg,
-    #03FFFF 60deg,
-    #24D627 120deg,
-    #FDFF22 180deg,
-    #FF2227 240deg,
-    #FE2DF6 300deg,
-    #7122FF 360deg
+    #0c28ff 0deg,
+    #03ffff 60deg,
+    #24d627 120deg,
+    #fdff22 180deg,
+    #ff2227 240deg,
+    #fe2df6 300deg,
+    #7122ff 360deg
   );
 }
 

@@ -29,24 +29,23 @@ const sizeStyles = {
  * Renders an icon button with customizable size and mode. It utilizes the `Tappable` component for enhanced
  * touch interaction, allowing it to serve various UI actions efficiently.
  */
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
-  size = 'm',
-  mode = 'bezeled',
-  className,
-  children,
-  ...restProps
-}, ref) => (
-  <Tappable
-    ref={ref}
-    Component="button"
-    className={classNames(
-      styles.wrapper,
-      modeStyles[mode],
-      sizeStyles[size],
-      className,
-    )}
-    {...restProps}
-  >
-    {children}
-  </Tappable>
-));
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (
+    { size = 'm', mode = 'bezeled', className, children, ...restProps },
+    ref,
+  ) => (
+    <Tappable
+      ref={ref}
+      Component="button"
+      className={classNames(
+        styles.wrapper,
+        modeStyles[mode],
+        sizeStyles[size],
+        className,
+      )}
+      {...restProps}
+    >
+      {children}
+    </Tappable>
+  ),
+);

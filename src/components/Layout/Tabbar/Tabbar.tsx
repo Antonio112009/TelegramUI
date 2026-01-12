@@ -7,7 +7,10 @@ import { classNames } from 'helpers/classNames';
 import { usePlatform } from 'hooks/usePlatform';
 
 import { FixedLayout } from 'components/Layout/FixedLayout/FixedLayout';
-import { TabbarItem, TabbarItemProps } from './components/TabbarItem/TabbarItem';
+import {
+  TabbarItem,
+  TabbarItemProps,
+} from './components/TabbarItem/TabbarItem';
 
 export interface TabbarProps extends HTMLAttributes<HTMLDivElement> {
   /** The child elements of the Tabbar, expected to be `Tabbar.Item` components. */
@@ -21,11 +24,7 @@ export interface TabbarProps extends HTMLAttributes<HTMLDivElement> {
  *
  * The component adapts its styling based on the platform, providing a consistent look and feel across different devices.
  */
-export const Tabbar = ({
-  children,
-  className,
-  ...restProps
-}: TabbarProps) => {
+export const Tabbar = ({ children, className, ...restProps }: TabbarProps) => {
   const platform = usePlatform();
 
   return (

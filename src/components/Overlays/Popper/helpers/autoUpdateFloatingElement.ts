@@ -1,5 +1,9 @@
 import { FloatingElement } from '@floating-ui/core';
-import { autoUpdate, AutoUpdateOptions, ReferenceType } from '@floating-ui/react-dom';
+import {
+  autoUpdate,
+  AutoUpdateOptions,
+  ReferenceType,
+} from '@floating-ui/react-dom';
 import { isHTMLElement } from '@floating-ui/utils/dom';
 
 const defaultOptions = {
@@ -17,10 +21,15 @@ export const autoUpdateFloatingElement = (
 ): ReturnType<typeof autoUpdate> => {
   const { elementResize = false, ...restOptions } = options;
 
-  const autoUpdateLibDisposer = autoUpdate(reference, floating as HTMLElement, update, {
-    ...restOptions,
-    elementResize: false,
-  });
+  const autoUpdateLibDisposer = autoUpdate(
+    reference,
+    floating as HTMLElement,
+    update,
+    {
+      ...restOptions,
+      elementResize: false,
+    },
+  );
 
   let observer: MutationObserver | null = null;
   if (elementResize) {

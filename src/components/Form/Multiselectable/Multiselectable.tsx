@@ -26,8 +26,12 @@ export const Multiselectable = ({
 }: MultiselectableProps) => {
   const platform = usePlatform();
 
-  const UnCheckedIcon = platform === 'ios' ? IconMultiselectableIOS : IconMultiselectable;
-  const CheckedIcon = platform === 'ios' ? IconMultiselectableIOSChecked : IconMultiselectableChecked;
+  const UnCheckedIcon =
+    platform === 'ios' ? IconMultiselectableIOS : IconMultiselectable;
+  const CheckedIcon =
+    platform === 'ios'
+      ? IconMultiselectableIOSChecked
+      : IconMultiselectableChecked;
 
   return (
     <label

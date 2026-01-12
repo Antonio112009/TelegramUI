@@ -10,4 +10,3 @@ const meta = {
 export default meta;
 
 export const Playground: StoryObj<PaginationProps> = {};
-

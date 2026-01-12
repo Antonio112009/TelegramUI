@@ -47,11 +47,7 @@ export const TabbarItem = ({
       )}
       {...restProps}
     >
-      {hasReactNode(children) && (
-        <div className={styles.icon}>
-          {children}
-        </div>
-      )}
+      {hasReactNode(children) && <div className={styles.icon}>{children}</div>}
       {hasReactNode(text) && (
         <Caption
           className={styles.text}

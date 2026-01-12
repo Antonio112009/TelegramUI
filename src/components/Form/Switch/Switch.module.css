@@ -14,7 +14,7 @@
 
 .wrapper--disabled {
   cursor: default;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .control::before {
@@ -54,9 +54,9 @@
 
   margin-left: 2px;
   box-shadow:
-      0 3px 1px 0 rgba(0, 0, 0, .06),
-      0 3px 8px 0 rgba(0, 0, 0, .15),
-      0 0 0 1px rgba(0, 0, 0, .04);
+    0 3px 1px 0 rgba(0, 0, 0, 0.06),
+    0 3px 8px 0 rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
   background: var(--tgui--white);
 }
 
@@ -81,12 +81,14 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .control::before {
-    transition: background-color, border-color 67ms linear;
+    transition:
+      background-color,
+      border-color 67ms linear;
   }
 
   .control::after {
     /** Value from https://material-web.dev/components/switch/ */
-    transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s
+    transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
   }
 
   .wrapper--ios .control::before {

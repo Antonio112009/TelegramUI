@@ -6,4 +6,6 @@
 export const callMultiple =
   (...fns: any) =>
     (...args: any) =>
-      fns.filter((f: any) => typeof f === 'function').forEach((f: any) => f(...args));
+      fns
+        .filter((f: any) => typeof f === 'function')
+        .forEach((f: any) => f(...args));

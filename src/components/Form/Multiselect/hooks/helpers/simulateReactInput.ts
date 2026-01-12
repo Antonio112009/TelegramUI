@@ -15,7 +15,7 @@ export const simulateReactInput = (
     const simulateTarget = target;
     const prevValue = simulateTarget.value;
     simulateTarget.value = nextValue;
-     
+
     const tracker = simulateTarget._valueTracker;
     tracker?.setValue(prevValue);
 

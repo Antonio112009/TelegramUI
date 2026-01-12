@@ -88,7 +88,9 @@
 }
 
 .wrapper--ios .row--no-biometric:last-child {
-  margin-left: calc(var(--tgui--pin_input--button-width) + var(--tgui--pin_input--buttons-gap));
+  margin-left: calc(
+    var(--tgui--pin_input--button-width) + var(--tgui--pin_input--buttons-gap)
+  );
 }
 
 .actionButton {

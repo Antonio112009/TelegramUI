@@ -12,31 +12,35 @@ export const transformOptions = ({
   options: optionsProp,
   selectedBehavior,
 }: Required<Pick<UseMultiselectProps, 'value' | 'options' | 'emptyText'>> &
-Pick<
-UseMultiselectProps,
-| 'inputValue'
-| 'emptyText'
-| 'creatable'
-| 'filterFn'
-| 'options'
-| 'selectedBehavior'
->): MultiselectOption[] => {
+  Pick<
+    UseMultiselectProps,
+    | 'inputValue'
+    | 'emptyText'
+    | 'creatable'
+    | 'filterFn'
+    | 'options'
+    | 'selectedBehavior'
+  >): MultiselectOption[] => {
   const filteredOptionsProp = filterFn
     ? optionsProp.filter((option) => filterFn(inputValue, option))
     : optionsProp;
 
   if (filteredOptionsProp.length === 0) {
     if (inputValue !== '' && typeof creatable === 'string') {
-      return [{
-        ...getNewOptionData('', ''),
-        actionText: creatable,
-      }];
+      return [
+        {
+          ...getNewOptionData('', ''),
+          actionText: creatable,
+        },
+      ];
     }
 
-    return [{
-      ...getNewOptionData('', ''),
-      placeholder: emptyText,
-    }];
+    return [
+      {
+        ...getNewOptionData('', ''),
+        placeholder: emptyText,
+      },
+    ];
   }
 
   if (selectedBehavior === 'hide') {

@@ -11,7 +11,10 @@ import {
   size,
 } from '@floating-ui/react-dom';
 
-import { getAutoPlacementAlignment, isNotAutoPlacement } from './helpers/alignment';
+import {
+  getAutoPlacementAlignment,
+  isNotAutoPlacement,
+} from './helpers/alignment';
 import { PlacementWithAuto } from './types';
 
 export interface UseFloatingMiddlewaresOptions {
@@ -51,7 +54,10 @@ export const useFloatingMiddlewares = ({
     const middlewares: Middleware[] = [
       offset({
         crossAxis: offsetByCrossAxis,
-        mainAxis: withArrow && arrowHeight ? offsetByMainAxis + arrowHeight : offsetByMainAxis,
+        mainAxis:
+          withArrow && arrowHeight
+            ? offsetByMainAxis + arrowHeight
+            : offsetByMainAxis,
       }),
     ];
 
@@ -62,9 +68,11 @@ export const useFloatingMiddlewares = ({
         }),
       );
     } else {
-      middlewares.push(autoPlacement({
-        alignment: getAutoPlacementAlignment(placement),
-      }));
+      middlewares.push(
+        autoPlacement({
+          alignment: getAutoPlacementAlignment(placement),
+        }),
+      );
     }
 
     middlewares.push(shift());

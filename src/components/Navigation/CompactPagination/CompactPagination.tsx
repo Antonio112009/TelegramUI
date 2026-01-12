@@ -8,7 +8,10 @@ import {
   CompactPaginationItemProps,
 } from './components/CompactPaginationItem/CompactPaginationItem';
 
-export interface CompactPaginationProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface CompactPaginationProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'onChange'
+> {
   /** Sets the color theme of the pagination. */
   mode?: 'default' | 'ambient' | 'white';
   /** Contains pagination items. */
@@ -33,11 +36,7 @@ export const CompactPagination = ({
 }: CompactPaginationProps) => (
   <div
     role="tablist"
-    className={classNames(
-      styles.wrapper,
-      modeStyles[mode],
-      className,
-    )}
+    className={classNames(styles.wrapper, modeStyles[mode], className)}
     {...restProps}
   >
     {children}

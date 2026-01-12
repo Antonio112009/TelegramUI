@@ -24,10 +24,16 @@ export const CardCell = ({
         cardContext.type === 'ambient' && styles['wrapper--ambient'],
         className,
       )}
-      subtitle={hasReactNode(subtitle) && <span className={styles.subtitle}>{subtitle}</span>}
+      subtitle={
+        hasReactNode(subtitle) && (
+          <span className={styles.subtitle}>{subtitle}</span>
+        )
+      }
       {...restProps}
     >
-      {hasReactNode(children) && <span className={styles.header}>{children}</span>}
+      {hasReactNode(children) && (
+        <span className={styles.header}>{children}</span>
+      )}
     </Cell>
   );
 };

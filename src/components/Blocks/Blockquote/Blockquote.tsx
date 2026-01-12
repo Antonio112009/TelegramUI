@@ -28,14 +28,12 @@ export const Blockquote = ({
   children,
   ...restProps
 }: BlockquoteProps) => (
-  <div
-    className={classNames(
-      styles.wrapper,
-      className,
+  <div className={classNames(styles.wrapper, className)} {...restProps}>
+    {type === 'text' ? (
+      <Subheadline className={styles.text}>{children}</Subheadline>
+    ) : (
+      children
     )}
-    {...restProps}
-  >
-    {type === 'text' ? <Subheadline className={styles.text}>{children}</Subheadline> : children}
     <IconContainer className={styles.topRightIcon}>
       {topRightIcon}
     </IconContainer>

@@ -2,7 +2,14 @@
 
 'use client';
 
-import { ChangeEvent, Dispatch, SetStateAction, useCallback, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 
 import { isFunction } from 'helpers/fuctions';
 import { useEnhancedEffect } from 'hooks/useEnhancedEffect';
@@ -28,31 +35,34 @@ export function useCustomEnsuredControl<V = any>({
     preservedControlledValueRef.current = value;
   });
 
-  const onChange = useCallback((nextValue: V | ((prevValue: any) => V)) => {
-    if (disabled) {
-      return;
-    }
-
-    if (isFunction(nextValue)) {
-      if (!isControlled) {
-        setLocalValue((prevValue) => {
-          const resolvedValue = nextValue(prevValue);
-          if (onChangeProp) {
-            onChangeProp(resolvedValue);
-          }
-          return resolvedValue;
-        });
-      } else if (onChangeProp) {
-        const resolvedValue = nextValue(preservedControlledValueRef.current);
-        onChangeProp(resolvedValue);
+  const onChange = useCallback(
+    (nextValue: V | ((prevValue: any) => V)) => {
+      if (disabled) {
+        return;
       }
 
-      return;
-    }
+      if (isFunction(nextValue)) {
+        if (!isControlled) {
+          setLocalValue((prevValue) => {
+            const resolvedValue = nextValue(prevValue);
+            if (onChangeProp) {
+              onChangeProp(resolvedValue);
+            }
+            return resolvedValue;
+          });
+        } else if (onChangeProp) {
+          const resolvedValue = nextValue(preservedControlledValueRef.current);
+          onChangeProp(resolvedValue);
+        }
 
-    onChangeProp && onChangeProp(nextValue);
-    !isControlled && setLocalValue(nextValue);
-  }, [disabled, isControlled, onChangeProp]);
+        return;
+      }
+
+      onChangeProp && onChangeProp(nextValue);
+      !isControlled && setLocalValue(nextValue);
+    },
+    [disabled, isControlled, onChangeProp],
+  );
 
   return [isControlled ? value : localValue, onChange];
 }

@@ -15,7 +15,9 @@ export const getArrowPositionData = (
 ): [undefined | 'right' | 'bottom' | 'left', CSSProperties] => {
   const withOffset = (isVerticalPlacement: boolean) => {
     const parsedCoords = { x: coords.x || 0, y: coords.y || 0 };
-    return isStaticOffset ? offset : parsedCoords[isVerticalPlacement ? 'y' : 'x'] + offset;
+    return isStaticOffset
+      ? offset
+      : parsedCoords[isVerticalPlacement ? 'y' : 'x'] + offset;
   };
 
   if (placement.startsWith('top')) {
@@ -55,5 +57,4 @@ export const getArrowPositionData = (
       right: 0,
     },
   ];
-
 };

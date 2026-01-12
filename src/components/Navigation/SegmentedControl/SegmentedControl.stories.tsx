@@ -56,4 +56,3 @@ export const Playground: StoryObj<SegmentedControlProps> = {
     ),
   ],
 };
-

@@ -47,7 +47,9 @@ export const updateInternalStateByNativeChange = (
   }
 };
 
-export const isMultipleValues = (value: InternalValueState): value is [number, number] => {
+export const isMultipleValues = (
+  value: InternalValueState,
+): value is [number, number] => {
   return value[1] !== null;
 };
 
@@ -63,8 +65,14 @@ export const determineSnapDirection = (
   }
 
   const [startRaw, endRaw] = currentValues;
-  const start = endRaw !== null ? startRaw - MINIMUM_DIFFERENCE_BETWEEN_START_AND_END : startRaw;
-  const end = endRaw !== null ? endRaw + MINIMUM_DIFFERENCE_BETWEEN_START_AND_END : 0;
+  const start =
+    endRaw !== null
+      ? startRaw - MINIMUM_DIFFERENCE_BETWEEN_START_AND_END
+      : startRaw;
+  const end =
+    endRaw !== null ? endRaw + MINIMUM_DIFFERENCE_BETWEEN_START_AND_END : 0;
 
-  return Math.abs(start - newValue) <= Math.abs(end - newValue) ? 'start' : 'end';
+  return Math.abs(start - newValue) <= Math.abs(end - newValue)
+    ? 'start'
+    : 'end';
 };

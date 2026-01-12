@@ -22,12 +22,14 @@ const PlaygroundComponent = () => {
   const [value, setValue] = useState('');
 
   return (
-    <List style={{
-      width: 400,
-      maxWidth: '100%',
-      margin: 'auto',
-      background: 'var(--tgui--secondary_bg_color)',
-    }}>
+    <List
+      style={{
+        width: 400,
+        maxWidth: '100%',
+        margin: 'auto',
+        background: 'var(--tgui--secondary_bg_color)',
+      }}
+    >
       <Input
         header="Input"
         placeholder="I am usual input, just leave me alone"
@@ -42,18 +44,14 @@ const PlaygroundComponent = () => {
         header="Input"
         placeholder="I am focused input, are u focused on me?"
       />
-      <Input
-        disabled
-        header="Input"
-        placeholder="I am disabled input"
-      />
+      <Input disabled header="Input" placeholder="I am disabled input" />
       <Input
         status="focused"
         header="Input"
         placeholder="Write and clean me"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        after={(
+        after={
           <Tappable
             Component="div"
             style={{ display: 'flex' }}
@@ -61,7 +59,7 @@ const PlaygroundComponent = () => {
           >
             <Icon24Close />
           </Tappable>
-        )}
+        }
       />
     </List>
   );

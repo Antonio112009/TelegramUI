@@ -25,7 +25,9 @@ export const useGlobalClicks = <
       const targetEl = event.target;
       const isClickInsideGivenRefs =
         isElement(targetEl) &&
-        refs.some((ref) => ref && ref.current && ref.current.contains(targetEl));
+        refs.some(
+          (ref) => ref && ref.current && ref.current.contains(targetEl),
+        );
 
       !isClickInsideGivenRefs && callback(event);
     };

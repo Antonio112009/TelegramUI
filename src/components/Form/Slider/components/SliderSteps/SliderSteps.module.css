@@ -9,7 +9,7 @@
 }
 
 .step--passed {
-  opacity: .35;
+  opacity: 0.35;
   background: var(--tgui--secondary_hint_color);
 }
 

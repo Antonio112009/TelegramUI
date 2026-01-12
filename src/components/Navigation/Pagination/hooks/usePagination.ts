@@ -36,7 +36,10 @@ export const usePagination = ({
   };
 
   const startPages = range(1, Math.min(boundaryCount, count));
-  const endPages = range(Math.max(count - boundaryCount + 1, boundaryCount + 1), count);
+  const endPages = range(
+    Math.max(count - boundaryCount + 1, boundaryCount + 1),
+    count,
+  );
 
   const siblingsStart = Math.max(
     Math.min(
@@ -67,7 +70,7 @@ export const usePagination = ({
     ...startPages,
 
     // Start ellipsis
-     
+
     ...(siblingsStart > boundaryCount + 2
       ? [PaginationType.StartEllipsis]
       : boundaryCount + 1 < count - boundaryCount
@@ -78,7 +81,7 @@ export const usePagination = ({
     ...range(siblingsStart, siblingsEnd),
 
     // End ellipsis
-     
+
     ...(siblingsEnd < count - boundaryCount - 1
       ? [PaginationType.EndEllipsis]
       : count - boundaryCount > boundaryCount
@@ -119,8 +122,10 @@ export const usePagination = ({
       page: buttonPage(typeOrPageNumber),
       selected: false,
       disabled:
-        (![PaginationType.StartEllipsis, PaginationType.EndEllipsis].includes(typeOrPageNumber) &&
-          (typeOrPageNumber === PaginationType.Next ? page >= count : page <= 1)),
+        ![PaginationType.StartEllipsis, PaginationType.EndEllipsis].includes(
+          typeOrPageNumber,
+        ) &&
+        (typeOrPageNumber === PaginationType.Next ? page >= count : page <= 1),
     };
   });
 };

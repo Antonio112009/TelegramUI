@@ -9,7 +9,10 @@ import { usePlatform } from 'hooks/usePlatform';
 
 import { Tappable } from 'components/Service/Tappable/Tappable';
 import { Caption } from 'components/Typography/Caption/Caption';
-import { InlineButtonsContext, InlineButtonsContextProps } from '../../InlineButtonsContext';
+import {
+  InlineButtonsContext,
+  InlineButtonsContextProps,
+} from '../../InlineButtonsContext';
 
 export interface InlineButtonsItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Text displayed inside the button. */
@@ -54,7 +57,11 @@ export const InlineButtonsItem = ({
       {...restProps}
     >
       {children}
-      {hasReactNode(text) && <Caption className={styles.text} level="1" weight="2">{text}</Caption>}
+      {hasReactNode(text) && (
+        <Caption className={styles.text} level="1" weight="2">
+          {text}
+        </Caption>
+      )}
     </Tappable>
   );
 };

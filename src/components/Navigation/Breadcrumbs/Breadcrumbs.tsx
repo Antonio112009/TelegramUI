@@ -33,7 +33,9 @@ export const Breadcrumbs = ({
           <div className={styles.divider}>
             {divider === 'dot' && <IconDot />}
             {divider === 'slash' && <IconSlash />}
-            {divider === 'chevron' && <Icon16Chevron className={styles.chevron} />}
+            {divider === 'chevron' && (
+              <Icon16Chevron className={styles.chevron} />
+            )}
           </div>
         )}
       </>

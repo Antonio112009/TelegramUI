@@ -7,12 +7,18 @@ import { classNames } from 'helpers/classNames';
 import { callMultiple } from 'helpers/function';
 import { usePlatform } from 'hooks/usePlatform';
 
-import { FormInput, FormPublicProps } from 'components/Form/FormInput/FormInput';
+import {
+  FormInput,
+  FormPublicProps,
+} from 'components/Form/FormInput/FormInput';
 import { VisuallyHidden } from 'components/Service/VisuallyHidden/VisuallyHidden';
 import { Subheadline } from 'components/Typography/Subheadline/Subheadline';
 import { Text } from 'components/Typography/Text/Text';
 
-export interface ColorInputProps extends Omit<FormPublicProps, 'after'>, InputHTMLAttributes<HTMLInputElement> {}
+export interface ColorInputProps
+  extends
+    Omit<FormPublicProps, 'after'>,
+    InputHTMLAttributes<HTMLInputElement> {}
 
 /**
  * Renders a color picker input within a form structure, displaying the selected color value.
@@ -48,7 +54,7 @@ export const ColorInput = ({
     <FormInput
       header={header}
       before={before}
-      after={(
+      after={
         <div className={styles.circle}>
           <VisuallyHidden
             Component="input"
@@ -57,9 +63,12 @@ export const ColorInput = ({
             onChange={callMultiple(onChange, onChangeProp)}
             {...restProps}
           />
-          <div className={styles.circleColor} style={{ backgroundColor: String(value) }} />
+          <div
+            className={styles.circleColor}
+            style={{ backgroundColor: String(value) }}
+          />
         </div>
-      )}
+      }
       status={status}
       className={classNames(
         styles.wrapper,
@@ -73,4 +82,3 @@ export const ColorInput = ({
     </FormInput>
   );
 };
-

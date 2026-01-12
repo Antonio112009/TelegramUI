@@ -4,7 +4,10 @@ import styles from './SegmentedControl.module.css';
 import { classNames } from 'helpers/classNames';
 import { usePlatform } from 'hooks/usePlatform';
 
-import { SegmentedControlItem, SegmentedControlItemProps } from './components/SegmentedControlItem/SegmentedControlItem';
+import {
+  SegmentedControlItem,
+  SegmentedControlItemProps,
+} from './components/SegmentedControlItem/SegmentedControlItem';
 
 export interface SegmentedControlProps extends HTMLAttributes<HTMLDivElement> {
   /** Children should be SegmentedControl.Item components to render within the control. */
@@ -23,7 +26,9 @@ export const SegmentedControl = ({
 }: SegmentedControlProps) => {
   const platform = usePlatform();
 
-  const childrenAsArray = Children.toArray(children) as ReactElement<SegmentedControlItemProps>[];
+  const childrenAsArray = Children.toArray(
+    children,
+  ) as ReactElement<SegmentedControlItemProps>[];
   const checkedIndex = childrenAsArray.findIndex((option) => {
     return isValidElement(option) && option.props.selected;
   });

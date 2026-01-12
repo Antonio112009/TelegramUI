@@ -32,4 +32,3 @@ export const CustomIcon: Story = {
     </Section>
   ),
 } satisfies Story;
-

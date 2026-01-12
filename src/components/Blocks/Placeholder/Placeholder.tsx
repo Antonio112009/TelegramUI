@@ -31,15 +31,20 @@ export const Placeholder = ({
   const hasDescription = hasReactNode(description);
 
   return (
-    <section
-      className={classNames(styles.wrapper, className)}
-      {...restProps}
-    >
+    <section className={classNames(styles.wrapper, className)} {...restProps}>
       {hasReactNode(children) && children}
       {(hasHeader || hasDescription) && (
         <dl className={styles.fields}>
-          {hasHeader && <Title Component="dt" level="3" weight="2">{header}</Title>}
-          {hasDescription && <Text className={styles.description} Component="dd">{description}</Text>}
+          {hasHeader && (
+            <Title Component="dt" level="3" weight="2">
+              {header}
+            </Title>
+          )}
+          {hasDescription && (
+            <Text className={styles.description} Component="dd">
+              {description}
+            </Text>
+          )}
         </dl>
       )}
       {hasReactNode(action) && action}

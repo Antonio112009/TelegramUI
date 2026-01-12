@@ -3,7 +3,9 @@ import { useContext } from 'react';
 import { AppRootContext, AppRootContextInterface } from '../AppRootContext';
 import { getInitialPlatform } from './helpers/getInitialPlatform';
 
-export const usePlatform = (platform?: AppRootContextInterface['platform']): NonNullable<AppRootContextInterface['platform']> => {
+export const usePlatform = (
+  platform?: AppRootContextInterface['platform'],
+): NonNullable<AppRootContextInterface['platform']> => {
   const appContext = useContext(AppRootContext);
 
   if (platform !== undefined) {

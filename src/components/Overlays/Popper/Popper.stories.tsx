@@ -11,7 +11,13 @@ import { Popper, PopperProps } from './Popper';
 const meta = {
   title: 'Overlays/Popper',
   component: Popper,
-  argTypes: hideControls('ArrowIcon', 'targetRef', 'arrowProps', 'Component', 'customMiddlewares'),
+  argTypes: hideControls(
+    'ArrowIcon',
+    'targetRef',
+    'arrowProps',
+    'Component',
+    'customMiddlewares',
+  ),
 } satisfies Meta<typeof Popper>;
 
 export default meta;
@@ -77,4 +83,3 @@ const PlaygroundComponent = (args: PopperProps) => {
 export const Playground: Story = {
   render: PlaygroundComponent,
 };
-

@@ -12,7 +12,10 @@ import { SliderSteps } from './components/SliderSteps/SliderSteps';
 import { SliderThumb } from './components/SliderThumb/SliderThumb';
 import { useSlider } from './hooks/useSlider';
 
-export interface SliderBaseProps extends Omit<HTMLAttributes<HTMLDivElement>, 'value' | 'defaultValue' | 'onChange'> {
+export interface SliderBaseProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'value' | 'defaultValue' | 'onChange'
+> {
   /** Minimum allowed value. Defaults to 0. */
   min?: number;
   /** Maximum allowed value. Defaults to 100. */
@@ -59,7 +62,13 @@ export type SliderProps = SliderNoMultipleProps | SliderMultipleProps;
  * Renders a slider input for selecting a value or range from a predefined interval. Supports single or multiple thumbs for range selection.
  * It leverages custom hooks for logic and state management and provides customization options for appearance and functionality.
  */
-export const Slider = ({ className, disabled, before, after, ...restProps }: SliderProps) => {
+export const Slider = ({
+  className,
+  disabled,
+  before,
+  after,
+  ...restProps
+}: SliderProps) => {
   const platform = usePlatform();
 
   const {
@@ -78,17 +87,15 @@ export const Slider = ({ className, disabled, before, after, ...restProps }: Sli
   } = useSlider(restProps);
 
   return (
-    <div className={classNames(
-      styles.wrapper,
-      platform === 'ios' && styles['wrapper--ios'],
-      disabled && styles['wrapper--disabled'],
-      className,
-    )}>
-      {hasReactNode(before) && (
-        <div className={styles.before}>
-          {before}
-        </div>
+    <div
+      className={classNames(
+        styles.wrapper,
+        platform === 'ios' && styles['wrapper--ios'],
+        disabled && styles['wrapper--disabled'],
+        className,
       )}
+    >
+      {hasReactNode(before) && <div className={styles.before}>{before}</div>}
       <Touch
         {...containerProps}
         className={styles.slider}
@@ -101,9 +108,13 @@ export const Slider = ({ className, disabled, before, after, ...restProps }: Sli
         </div>
         <div
           className={styles.trackFilled}
-          style={multiple
-            ? { left: `${startValueInPercent}%`, right: `${100 - endReversedValueInPercent}%` }
-            : { width: `${startValueInPercent}%` }
+          style={
+            multiple
+              ? {
+                left: `${startValueInPercent}%`,
+                right: `${100 - endReversedValueInPercent}%`,
+              }
+              : { width: `${startValueInPercent}%` }
           }
         />
         <div ref={thumbsContainerRef} className={styles.thumbs}>
@@ -126,11 +137,7 @@ export const Slider = ({ className, disabled, before, after, ...restProps }: Sli
           )}
         </div>
       </Touch>
-      {hasReactNode(after) && (
-        <div className={styles.after}>
-          {after}
-        </div>
-      )}
+      {hasReactNode(after) && <div className={styles.after}>{after}</div>}
     </div>
   );
 };

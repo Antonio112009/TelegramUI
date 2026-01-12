@@ -13,7 +13,12 @@ export interface SectionHeaderProps extends HTMLAttributes<HTMLHeadElement> {
   large?: boolean;
 }
 
-export const SectionHeader = ({ large, className, children, ...restProps }: SectionHeaderProps) => {
+export const SectionHeader = ({
+  large,
+  className,
+  children,
+  ...restProps
+}: SectionHeaderProps) => {
   const platform = usePlatform();
   const { Default, Large } = useHeaderComponents();
 
@@ -28,7 +33,9 @@ export const SectionHeader = ({ large, className, children, ...restProps }: Sect
       )}
       {...restProps}
     >
-      <Component Component="h1" className={styles.title}>{children}</Component>
+      <Component Component="h1" className={styles.title}>
+        {children}
+      </Component>
     </header>
   );
 };

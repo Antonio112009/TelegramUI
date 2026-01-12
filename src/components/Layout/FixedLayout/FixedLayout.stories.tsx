@@ -30,4 +30,3 @@ export const Playground: Story = {
     </div>
   ),
 } satisfies Story;
-

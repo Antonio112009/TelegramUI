@@ -1,4 +1,9 @@
-import { ComponentType, forwardRef, HTMLAttributes, SVGAttributes } from 'react';
+import {
+  ComponentType,
+  forwardRef,
+  HTMLAttributes,
+  SVGAttributes,
+} from 'react';
 import styles from './FloatingArrow.module.css';
 
 import { classNames } from 'helpers/classNames';
@@ -32,38 +37,43 @@ export interface FloatingArrowProps extends HTMLAttributes<HTMLDivElement> {
  * such as a tooltip to signify its association with a target element.
  * Supports custom arrow icons and positioning adjustments.
  */
-export const FloatingArrow = forwardRef<HTMLDivElement, FloatingArrowProps>(({
-  style,
-  offset,
-  isStaticOffset,
-  coords,
-  placement = 'bottom',
-  Icon = DefaultIcon,
-  className,
-  ...restProps
-}, ref) => {
-  const [arrowPlacement, arrowStyles] = getArrowPositionData(
-    placement,
-    coords,
-    offset,
-    isStaticOffset,
-  );
+export const FloatingArrow = forwardRef<HTMLDivElement, FloatingArrowProps>(
+  (
+    {
+      style,
+      offset,
+      isStaticOffset,
+      coords,
+      placement = 'bottom',
+      Icon = DefaultIcon,
+      className,
+      ...restProps
+    },
+    ref,
+  ) => {
+    const [arrowPlacement, arrowStyles] = getArrowPositionData(
+      placement,
+      coords,
+      offset,
+      isStaticOffset,
+    );
 
-  return (
-    <div
-      ref={ref}
-      style={{
-        ...arrowStyles,
-        ...style,
-      }}
-      className={classNames(
-        styles.wrapper,
-        arrowPlacement && placementStyles[arrowPlacement],
-        className,
-      )}
-      {...restProps}
-    >
-      <Icon className={styles.icon} />
-    </div>
-  );
-});
+    return (
+      <div
+        ref={ref}
+        style={{
+          ...arrowStyles,
+          ...style,
+        }}
+        className={classNames(
+          styles.wrapper,
+          arrowPlacement && placementStyles[arrowPlacement],
+          className,
+        )}
+        {...restProps}
+      >
+        <Icon className={styles.icon} />
+      </div>
+    );
+  },
+);

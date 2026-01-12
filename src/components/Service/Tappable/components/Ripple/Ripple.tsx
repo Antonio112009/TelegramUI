@@ -12,10 +12,7 @@ export interface RippleProps {
 }
 
 export const Ripple = ({ clicks }: RippleProps) => (
-  <span
-    aria-hidden
-    className={styles.wrapper}
-  >
+  <span aria-hidden className={styles.wrapper}>
     {clicks.map((wave) => (
       <span
         key={wave.date}

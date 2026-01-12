@@ -14,7 +14,11 @@ export const RenderOptionDefault = (props: CellProps) => {
   return (
     <Cell
       {...props}
-      after={props.selected ? <SelectedIcon className={styles.selectedIcon} /> : undefined}
+      after={
+        props.selected ? (
+          <SelectedIcon className={styles.selectedIcon} />
+        ) : undefined
+      }
     />
   );
 };

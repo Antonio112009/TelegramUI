@@ -3,7 +3,7 @@
   border-radius: 12px;
   color: var(--tgui--black);
   background: var(--tgui--white);
-  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, .10);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
 }
 
 .wrapper--dark {

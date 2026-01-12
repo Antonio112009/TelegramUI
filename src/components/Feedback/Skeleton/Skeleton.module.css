@@ -21,12 +21,12 @@
 }
 
 @keyframes fade {
-  0%, 100% {
-    opacity: .4;
+  0%,
+  100% {
+    opacity: 0.4;
   }
 
   50% {
-    opacity: .7;
+    opacity: 0.7;
   }
 }
-

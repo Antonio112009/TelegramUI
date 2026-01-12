@@ -19,7 +19,9 @@ export const TabsList = ({
   children,
   ...restProps
 }: TabsListProps) => {
-  const childrenAsArray = Children.toArray(children) as ReactElement<TabsItemProps>[];
+  const childrenAsArray = Children.toArray(
+    children,
+  ) as ReactElement<TabsItemProps>[];
   const checkedIndex = childrenAsArray.findIndex((option) => {
     return isValidElement(option) && option.props.selected;
   });
@@ -28,10 +30,7 @@ export const TabsList = ({
   return (
     <div
       role="tablist"
-      className={classNames(
-        styles.wrapper,
-        className,
-      )}
+      className={classNames(styles.wrapper, className)}
       {...restProps}
     >
       {checkedIndex > -1 && (

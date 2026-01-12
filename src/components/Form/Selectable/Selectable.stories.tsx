@@ -45,4 +45,3 @@ export const WithCell: Story = {
     </form>
   ),
 } satisfies Story;
-

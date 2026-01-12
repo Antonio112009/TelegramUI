@@ -15,4 +15,3 @@ export const Playground: StoryObj<TabsItemProps> = {
     children: 'This is a TabsList.Item',
   },
 };
-

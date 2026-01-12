@@ -1,10 +1,19 @@
-import { Children, cloneElement, HTMLAttributes, isValidElement, ReactElement } from 'react';
+import {
+  Children,
+  cloneElement,
+  HTMLAttributes,
+  isValidElement,
+  ReactElement,
+} from 'react';
 import styles from './Timeline.module.css';
 
 import { classNames } from 'helpers/classNames';
 
 import { HorizontalScroll } from 'components/Service/HorizontalScroll/HorizontalScroll';
-import { TimelineItem, TimelineItemProps } from './components/TimelineItem/TimelineItem';
+import {
+  TimelineItem,
+  TimelineItemProps,
+} from './components/TimelineItem/TimelineItem';
 
 export interface TimelineProps extends HTMLAttributes<HTMLUListElement> {
   /** Determines the orientation of the timeline. If true, the timeline is displayed horizontally. */

@@ -22,7 +22,8 @@ export const AccordionSummary = ({
   children,
   ...restProps
 }: AccordionSummaryProps) => {
-  const { expanded, labelId, contentId, onChange } = useContext(AccordionContext);
+  const { expanded, labelId, contentId, onChange } =
+    useContext(AccordionContext);
   const toggle = () => onChange(!expanded);
 
   return (
@@ -31,14 +32,16 @@ export const AccordionSummary = ({
       aria-expanded={expanded}
       aria-controls={contentId}
       onClick={callMultiple(toggle, onClick)}
-      after={after || (
-        <Icon24ChevronDown
-          className={classNames(
-            styles.chevron,
-            expanded && styles['chevron--expanded'],
-          )}
-        />
-      )}
+      after={
+        after || (
+          <Icon24ChevronDown
+            className={classNames(
+              styles.chevron,
+              expanded && styles['chevron--expanded'],
+            )}
+          />
+        )
+      }
       {...restProps}
     >
       {children}

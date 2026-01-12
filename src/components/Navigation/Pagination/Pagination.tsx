@@ -11,7 +11,8 @@ import { PaginationType } from './hooks/enum';
 import { UsePaginationItem, UsePaginationProps } from './hooks/types';
 import { usePagination } from './hooks/usePagination';
 
-export interface PaginationProps extends UsePaginationProps, Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface PaginationProps
+  extends UsePaginationProps, Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Controls whether the Pagination component is interactive. */
   disabled?: boolean;
 }
@@ -74,7 +75,10 @@ export const Pagination = ({
       {...restProps}
     >
       {paginationItems.map((item) => {
-        const isEllipsis = [PaginationType.StartEllipsis, PaginationType.EndEllipsis].includes(item.type);
+        const isEllipsis = [
+          PaginationType.StartEllipsis,
+          PaginationType.EndEllipsis,
+        ].includes(item.type);
 
         return (
           <Headline

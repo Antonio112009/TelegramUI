@@ -65,9 +65,7 @@ export const App = () => (
       <Section header="Header for the section" footer="Footer for the section">
         {/* Mapping through the cells data to render Cell components */}
         {cellsTexts.map((cellText, index) => (
-          <Cell key={index}>
-            {cellText}
-          </Cell>
+          <Cell key={index}>{cellText}</Cell>
         ))}
       </Section>
     </List>

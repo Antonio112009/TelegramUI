@@ -13,12 +13,14 @@ export default meta;
 
 export const Playground: StoryObj<SpinnerProps> = {
   render: (args) => (
-    <div style={{
-      width: '400px',
-      border: '1px dashed #9747FF',
-      borderRadius: '5px',
-      padding: '20px',
-    }}>
+    <div
+      style={{
+        width: '400px',
+        border: '1px dashed #9747FF',
+        borderRadius: '5px',
+        padding: '20px',
+      }}
+    >
       <Spinner {...args} size="s" /> <br />
       <Spinner {...args} size="m" /> <br />
       <Spinner {...args} size="l" /> <br />

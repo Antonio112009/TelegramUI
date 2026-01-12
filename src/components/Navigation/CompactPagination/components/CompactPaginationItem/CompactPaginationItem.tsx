@@ -27,6 +27,8 @@ export const CompactPaginationItem = ({
     )}
     {...restProps}
   >
-    {hasReactNode(children) ? <VisuallyHidden>{children}</VisuallyHidden> : undefined}
+    {hasReactNode(children) ? (
+      <VisuallyHidden>{children}</VisuallyHidden>
+    ) : undefined}
   </button>
 );

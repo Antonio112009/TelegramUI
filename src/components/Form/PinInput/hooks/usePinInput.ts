@@ -20,7 +20,20 @@ interface UsePinInputProps {
 }
 
 const BIOMETRIC_AUTH_BUTTON_VALUE = 'BiometricAuth';
-export const DEFAULT_PINS = [1, 2, 3, 4, 5, 6, 7, 8, 9, BIOMETRIC_AUTH_BUTTON_VALUE, 0, Keys.BACKSPACE];
+export const DEFAULT_PINS = [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  BIOMETRIC_AUTH_BUTTON_VALUE,
+  0,
+  Keys.BACKSPACE,
+];
 
 export const getAvailablePins = (biometricType?: BiometricType) => {
   const pins = [...DEFAULT_PINS];
@@ -67,12 +80,16 @@ export const usePinInput = ({
     focusByIndex(currentIndex - 1);
   };
 
-  const handleClickValue = useCallback((enteredValue: number) => {
-    const lastIndex = clamp(value.length, 0, pinCount - 1);
-    setValueByIndex(lastIndex, enteredValue);
-    focusByIndex(lastIndex + 1);
+  const handleClickValue = useCallback(
+    (enteredValue: number) => {
+      const lastIndex = clamp(value.length, 0, pinCount - 1);
+      setValueByIndex(lastIndex, enteredValue);
+      focusByIndex(lastIndex + 1);
+       
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, pinCount]);
+    [value, pinCount],
+  );
 
   const handleClickBackspace = useCallback(() => {
     removeLastValue(value.length - 1);
@@ -111,28 +128,35 @@ export const usePinInput = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setInputRefByIndex = useCallback((index: number, ref: HTMLLabelElement | null) => {
-    if (!ref) {
-      return;
-    }
+  const setInputRefByIndex = useCallback(
+    (index: number, ref: HTMLLabelElement | null) => {
+      if (!ref) {
+        return;
+      }
 
-    inputRefs[index] = ref;
+      inputRefs[index] = ref;
+       
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    [],
+  );
 
-  const onElementClick = useCallback((element: string | number) => {
-    if (element === Keys.BACKSPACE) {
-      handleClickBackspace();
-      return;
-    }
+  const onElementClick = useCallback(
+    (element: string | number) => {
+      if (element === Keys.BACKSPACE) {
+        handleClickBackspace();
+        return;
+      }
 
-    if (element === BIOMETRIC_AUTH_BUTTON_VALUE) {
-      handleBiometricAuth();
-      return;
-    }
+      if (element === BIOMETRIC_AUTH_BUTTON_VALUE) {
+        handleBiometricAuth();
+        return;
+      }
 
-    handleClickValue(Number(element));
-  }, [handleClickValue, handleClickBackspace, handleBiometricAuth]);
+      handleClickValue(Number(element));
+    },
+    [handleClickValue, handleClickBackspace, handleBiometricAuth],
+  );
 
   return {
     value,

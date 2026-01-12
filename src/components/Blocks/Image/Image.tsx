@@ -1,6 +1,12 @@
 'use client';
 
-import { ImgHTMLAttributes, isValidElement, ReactNode, SyntheticEvent, useState } from 'react';
+import {
+  ImgHTMLAttributes,
+  isValidElement,
+  ReactNode,
+  SyntheticEvent,
+  useState,
+} from 'react';
 import styles from './Image.module.css';
 
 import { classNames } from 'helpers/classNames';
@@ -45,7 +51,8 @@ export const Image = ({
   const [failed, setFailed] = useState(false);
 
   const hasSrc = src || srcSet;
-  const needShowFallbackIcon = (failed || !hasSrc) && isValidElement(fallbackIcon);
+  const needShowFallbackIcon =
+    (failed || !hasSrc) && isValidElement(fallbackIcon);
 
   const handleImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
     if (loaded) {
@@ -95,7 +102,9 @@ export const Image = ({
           onError={handleImageError}
         />
       )}
-      {needShowFallbackIcon && <div className={styles.fallback}>{fallbackIcon}</div>}
+      {needShowFallbackIcon && (
+        <div className={styles.fallback}>{fallbackIcon}</div>
+      )}
       {children}
     </div>
   );

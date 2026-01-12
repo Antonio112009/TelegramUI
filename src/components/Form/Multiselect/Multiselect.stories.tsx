@@ -15,7 +15,15 @@ const meta = {
     layout: 'fullscreen',
   },
   argTypes: {
-    ...hideControls('options', 'before', 'renderOption', 'value', 'defaultValue', 'filterFn', 'creatable'),
+    ...hideControls(
+      'options',
+      'before',
+      'renderOption',
+      'value',
+      'defaultValue',
+      'filterFn',
+      'creatable',
+    ),
     ...setControlsTypes(['header'], 'text'),
   },
 } satisfies Meta<typeof Multiselect>;
@@ -33,12 +41,19 @@ const PLATFORM_OPTIONS: MultiselectOption[] = [
 ];
 
 const decorator: Decorator = (Story) => (
-  <List style={{ background: 'var(--tgui--secondary_bg_color)', minHeight: '360px' }}>
+  <List
+    style={{
+      background: 'var(--tgui--secondary_bg_color)',
+      minHeight: '360px',
+    }}
+  >
     <Story />
   </List>
 );
 
-const StoryBookComponent = (props: MultiselectProps & { sectionHeader: string }) => {
+const StoryBookComponent = (
+  props: MultiselectProps & { sectionHeader: string },
+) => {
   const [value, setValue] = useState<MultiselectOption[]>([]);
   const { sectionHeader, ...multiselectProps } = props;
 
@@ -57,7 +72,9 @@ const StoryBookComponent = (props: MultiselectProps & { sectionHeader: string })
 };
 
 export const Pick: StoryObj<MultiselectProps> = {
-  render: (props) => <StoryBookComponent sectionHeader="Pick from existed options" {...props} />,
+  render: (props) => (
+    <StoryBookComponent sectionHeader="Pick from existed options" {...props} />
+  ),
   decorators: [decorator],
 };
 
@@ -65,7 +82,12 @@ export const PickAndHideDropdown: StoryObj<MultiselectProps> = {
   args: {
     closeDropdownAfterSelect: true,
   },
-  render: (props) => <StoryBookComponent sectionHeader="Pick from existed options and hide" {...props} />,
+  render: (props) => (
+    <StoryBookComponent
+      sectionHeader="Pick from existed options and hide"
+      {...props}
+    />
+  ),
   decorators: [decorator],
 };
 
@@ -73,6 +95,11 @@ export const CreateOptionInInput: StoryObj<MultiselectProps> = {
   args: {
     creatable: 'Create new platform',
   },
-  render: (props) => <StoryBookComponent sectionHeader="Type something inside and press enter or option in list" {...props} />,
+  render: (props) => (
+    <StoryBookComponent
+      sectionHeader="Type something inside and press enter or option in list"
+      {...props}
+    />
+  ),
   decorators: [decorator],
 };

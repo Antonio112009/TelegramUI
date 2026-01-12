@@ -4,7 +4,7 @@ import { MultiselectOption } from 'components/Form/Multiselect/types';
 
 export type FilterFn = (
   inputValue: string,
-  option: MultiselectOption,
+  option: MultiselectOption
 ) => boolean;
 
 export function defaultFilterFn(
@@ -38,5 +38,7 @@ export function defaultFilterFn(
     return false;
   }
 
-  return includes.some(index => index === 0 || !/\p{L}/u.test(label[index - 1]));
+  return includes.some(
+    (index) => index === 0 || !/\p{L}/u.test(label[index - 1]),
+  );
 }

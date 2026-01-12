@@ -6,7 +6,7 @@
 
 .wrapper--disabled {
   cursor: default;
-  opacity: .25;
+  opacity: 0.25;
 }
 
 .icon {
@@ -24,7 +24,7 @@
 
 .icon,
 .checkedIcon {
-  transition: opacity .15s ease-out;
+  transition: opacity 0.15s ease-out;
 }
 
 .input:checked ~ .icon {
@@ -34,4 +34,3 @@
 .input:checked ~ .checkedIcon {
   opacity: 1;
 }
-

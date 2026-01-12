@@ -30,7 +30,7 @@ export const Spoiler = ({
   const toggle = () => setIsVisible(!isVisible);
   return (
   // It's a spoiler component, content inside is available for screen readers
-     
+
     <div
       {...restProps}
       className={classNames(

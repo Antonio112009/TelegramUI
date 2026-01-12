@@ -14,7 +14,7 @@
   border: none;
   background: transparent;
 
-  transition: .15s ease-out;
+  transition: 0.15s ease-out;
   color: var(--tgui--secondary_hint_color);
 }
 

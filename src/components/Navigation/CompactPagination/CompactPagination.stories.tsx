@@ -19,12 +19,17 @@ const PlaygroundComponent = (args: CompactPaginationProps) => {
   const [selected, setSelected] = useState(1);
 
   return (
-    <div style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      padding: 20,
-      background: args.mode === 'white' ? 'var(--tgui--black)' : 'var(--tgui--secondary_bg_color)',
-    }}>
+    <div
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        padding: 20,
+        background:
+          args.mode === 'white'
+            ? 'var(--tgui--black)'
+            : 'var(--tgui--secondary_bg_color)',
+      }}
+    >
       <CompactPagination {...args}>
         {paginationItems.map((item) => (
           <CompactPagination.Item

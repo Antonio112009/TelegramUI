@@ -3,7 +3,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  transition: background-color .15s ease-out;
+  transition: background-color 0.15s ease-out;
 }
 
 .wave {
@@ -16,7 +16,7 @@
   border-radius: 50%;
 
   background: var(--tgui--outline);
-  animation: waveRise .3s cubic-bezier(.3, .3, .5, 1);
+  animation: waveRise 0.3s cubic-bezier(0.3, 0.3, 0.5, 1);
   opacity: 0;
 }
 

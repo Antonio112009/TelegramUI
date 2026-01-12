@@ -9,7 +9,13 @@ import { Tooltip, TooltipProps } from './Tooltip';
 const meta = {
   title: 'Overlays/Tooltip',
   component: Tooltip,
-  argTypes: hideControls('ArrowIcon', 'targetRef', 'arrowProps', 'Component', 'customMiddlewares'),
+  argTypes: hideControls(
+    'ArrowIcon',
+    'targetRef',
+    'arrowProps',
+    'Component',
+    'customMiddlewares',
+  ),
   parameters: {
     layout: 'centered',
   },
@@ -45,16 +51,19 @@ export const Playground: Story = {
     },
   },
   render: PlaygroundComponent,
-  decorators: [(StoryComponent) => (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: 280,
-      height: 300,
-    }}>
-      <StoryComponent />
-    </div>
-  )],
+  decorators: [
+    (StoryComponent) => (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 280,
+          height: 300,
+        }}
+      >
+        <StoryComponent />
+      </div>
+    ),
+  ],
 };
-

@@ -25,7 +25,7 @@
 }
 
 .wrapper--withBackground .subheader {
-  opacity: .8;
+  opacity: 0.8;
   color: var(--tgui--white);
 }
 

@@ -8,9 +8,13 @@ import { AppRootContext, AppRootContextInterface } from '../AppRootContext';
 import { getBrowserAppearanceSubscriber } from './helpers/getBrowserAppearanceSubscriber';
 import { getInitialAppearance } from './helpers/getInitialAppearance';
 
-export const useAppearance = (appearanceProp?: AppRootContextInterface['appearance']): NonNullable<AppRootContextInterface['appearance']> => {
+export const useAppearance = (
+  appearanceProp?: AppRootContextInterface['appearance'],
+): NonNullable<AppRootContextInterface['appearance']> => {
   const { appearance: contextAppearance } = useContext(AppRootContext);
-  const [appearance, setAppearance] = useState(appearanceProp || contextAppearance || getInitialAppearance());
+  const [appearance, setAppearance] = useState(
+    appearanceProp || contextAppearance || getInitialAppearance(),
+  );
 
   const handleThemeChange = useCallback(() => {
     const telegramData = getTelegramData();

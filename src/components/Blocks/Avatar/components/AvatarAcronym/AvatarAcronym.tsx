@@ -15,7 +15,9 @@ export const AvatarAcronym = ({ size, ...restProps }: AvatarAcronymProps) => {
   }
 
   if (size <= 28) {
-    return <Caption level={size <= 24 ? '2' : '1'} weight="1" caps {...restProps} />;
+    return (
+      <Caption level={size <= 24 ? '2' : '1'} weight="1" caps {...restProps} />
+    );
   }
 
   if (size === 40) {

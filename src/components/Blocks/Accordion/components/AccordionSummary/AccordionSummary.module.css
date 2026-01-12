@@ -1,5 +1,5 @@
 .chevron {
-  transition: transform .15s ease-out;
+  transition: transform 0.15s ease-out;
   color: var(--tgui--link_color);
 }
 

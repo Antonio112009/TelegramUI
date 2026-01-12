@@ -14,7 +14,7 @@ export default tseslint.config(
   ...tseslint.configs.recommendedTypeChecked,
   prettierConfig,
   {
-    ignores: ['dist/**', 'dist-cjs/**', 'node_modules/**', 'storybook-static/**', '**/*.test.ts', '**/*.test.tsx'],
+    ignores: ['dist/**', 'dist-cjs/**', 'node_modules/**', 'storybook-static/**', '**/*.test.ts', '**/*.test.tsx', '**/*.stories.tsx', '**/*.stories.ts'],
   },
   {
     files: ['**/*.{ts,tsx,js,jsx}'],

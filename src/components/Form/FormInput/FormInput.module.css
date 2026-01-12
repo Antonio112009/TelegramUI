@@ -28,14 +28,14 @@
 }
 
 .wrapper--ios.wrapper--disabled {
-  opacity: .35;
+  opacity: 0.35;
 }
 
 .wrapper--base.wrapper--disabled::after {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: .5;
+  opacity: 0.5;
   background: var(--tgui--bg_color);
 }
 
