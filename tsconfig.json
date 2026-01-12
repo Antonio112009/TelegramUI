@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "ES2022",
     "jsx": "react-jsx",
-    "lib": ["dom", "es2018"],
-    "module": "esnext",
+    "lib": ["dom", "ES2022"],
+    "module": "ESNext",
     "moduleResolution": "bundler",
+    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "components/*": ["./src/components/*"],
@@ -24,7 +25,8 @@
     "**/*.tsx",
     "**/*.ts",
     "**/*.js",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    ".storybook/**/*"
   ],
   "exclude": [
     "node_modules",
