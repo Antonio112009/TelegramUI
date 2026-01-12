@@ -151,7 +151,7 @@ export const Multiselect = forwardRef<HTMLDivElement, MultiselectProps>(
     });
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const rootRef = useRef(null);
+    const rootRef = useRef<HTMLDivElement>(null);
 
     const dropdownAriaId = useId();
     const dropdownScrollBoxRef = useRef<HTMLDivElement>(null);

@@ -39,7 +39,7 @@ export interface PopperProps
     >,
     HTMLAttributes<HTMLDivElement> {
   /** Reference to the target element or virtual element for precise positioning. */
-  targetRef: RefObject<HTMLElement> | VirtualElement;
+  targetRef: RefObject<HTMLElement | null> | VirtualElement;
   /** Configuration and customization options for the floating arrow component. */
   arrowProps?: FloatingArrowProps & {
     /** Optionally override the default arrow height. */
