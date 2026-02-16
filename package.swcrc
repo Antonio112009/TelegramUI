@@ -23,6 +23,22 @@
         "runtime": "automatic"
       }
     },
-    "target": "es2015"
+    "target": "es2022",
+    "experimental": {
+      "plugins": [
+        [
+          "swc-plugin-css-modules",
+          {
+            "generate_scoped_name": "tgui.[hash]"
+          }
+        ],
+        [
+          "swc-plugin-transform-remove-imports",
+          {
+            "test": "\\.css$"
+          }
+        ]
+      ]
+    }
   }
 }
